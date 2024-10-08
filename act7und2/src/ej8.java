@@ -6,7 +6,6 @@ public class ej8 {
                 int numero = 2;          // Empezamos a buscar primos a partir del número 2 (el primer número primo)
 
                 // Bucle exterior para encontrar los primeros 50 números primos
-                while (contadorPrimos <= 50) {
                     boolean esPrimo = true; // Asumimos que el número es primo
 
                     // Bucle interior para comprobar si el número es primo
