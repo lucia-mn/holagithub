@@ -13,7 +13,10 @@ public class ej11 {
 
         do {
 
+            //JFrame frame = new JFrame("Menu"); JMenuBar menuBar = new JMenuBar();
+
         System.out.println("""
+                Selecciona una opción:
                 1 jugar
                 2 bailar
                 3 cantar
