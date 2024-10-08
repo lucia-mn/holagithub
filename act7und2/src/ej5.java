@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ej5 {
 
     public static void main(String[] args) {
@@ -5,23 +7,43 @@ public class ej5 {
         int fila;
         int columna;
 
-
-        /*for (fila = 1; fila <= 6 ; fila++) {
+        //a
+        for (fila = 1; fila <= 6; fila++) {
             for (columna = 1; columna <= fila; columna++) {
                 System.out.print("*");
-            }
-            System.out.println();
-        }*/
-
-
-        for (fila = 1; fila <= 6 ; fila++) {
-            for (columna = 1; columna <= fila; columna++) {
-                System.out.print("*");
-                if (fila >= 4)
-                    break;
             }
             System.out.println();
         }
 
+        //b
+        for (fila = 1; fila <= 6; fila++) {
+            System.out.println("*");
+            for (columna = 1; columna <= fila; columna++) {
+                System.out.print(" ");
+            }
+        }
+
+        //c
+        for (int i = 0; i <= 5; i++) {
+            //System.out.println(+ a);
+            for (int j = i; j >= 1; j--) {
+                System.out.print(j + " ");
+
+            }
+            System.out.println();
+        }
+
+        //d
+        for (fila = 1; fila <= 6; fila++) {
+            System.out.print("*");
+            for (columna = fila; columna >= fila; columna--) {
+                System.out.print("#");
+
+            }
+            System.out.println();
+
+        }
+
     }
 }
+

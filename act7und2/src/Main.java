@@ -12,6 +12,8 @@ public class Main {
             System.out.println();
         }
 
+        // el continue va siempre dentro de un bucle; si no hay un bucle no hay continue y viceversa
+
         /*int a = 0;
         int b = 9;
         if (a != b) {
