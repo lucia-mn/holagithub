@@ -66,7 +66,7 @@ public class ej1 {
 
     //4
     public static double potencia(int num, int num2) {
-      return Math.pow(num, num2);
+        return Math.pow(num, num2);
     }
 
 
@@ -130,10 +130,10 @@ public class ej1 {
 
 
 
-        public static void main (String[]args){
-            //Scanner sc = new Scanner(System.in);
+    public static void main (String[]args){
+        //Scanner sc = new Scanner(System.in);
 
-            System.out.println("""
+        System.out.println("""
                     ("Selecciona una opción:");
                     System.out.println("1. Comprobar si es capicúa");
                     System.out.println("2. Comprobar si es primo");
@@ -151,54 +151,54 @@ public class ej1 {
                     System.out.println("14. Juntar dos números");
                     System.out.println("0. Salir");
                     """);
-            Scanner scan=new Scanner(System.in);
+        Scanner scan=new Scanner(System.in);
 
-            System.out.println("Elige una opción:");
-            int num = scan.nextInt();
+        System.out.println("Elige una opción:");
+        int num = scan.nextInt();
 
 
-            switch (num) {
-                case 0:
-                    System.out.println("Fin del programa");
-                    break;
+        switch (num) {
+            case 0:
+                System.out.println("Fin del programa");
+                break;
 
-                case 1:
-                    System.out.println("Comprobar si es capicúa: "+esCapicua(pedirnum()));
-                    break;
+            case 1:
+                System.out.println("Comprobar si es capicúa: "+esCapicua(pedirnum()));
+                break;
 
-                case 2:
-                    System.out.println("Comprobar si es primo: "+esPrimo(pedirnum()));
-                    break;
+            case 2:
+                System.out.println("Comprobar si es primo: "+esPrimo(pedirnum()));
+                break;
 
-                case 3:
-                    System.out.println("El siguiente primo es: "+siguientePrimo(pedirnum()));
-                    break;
+            case 3:
+                System.out.println("El siguiente primo es: "+siguientePrimo(pedirnum()));
+                break;
 
-                case 4:
-                    System.out.println("Calcular potencia, introdce el primer número (base) y el segundo (exponente)");
-                    int x = pedirnum();
-                    int y = pedirnum();
-                    System.out.println("La potencia es: "+potencia(x,y));
-                    break;
+            case 4:
+                System.out.println("Calcular potencia, introdce el primer número (base) y el segundo (exponente)");
+                int x = pedirnum();
+                int y = pedirnum();
+                System.out.println("La potencia es: "+potencia(x,y));
+                break;
 
-                case 5:
-                    System.out.println("Contar dígitos: "+digitos(pedirnum()));
-                    break;
+            case 5:
+                System.out.println("Contar dígitos: "+digitos(pedirnum()));
+                break;
 
-                case 6:
-                    System.out.println("El número volteado es: "+voltea(pedirnum()));
-                    break;
+            case 6:
+                System.out.println("El número volteado es: "+voltea(pedirnum()));
+                break;
 
-                case 7:
-                    int d;
-                    System.out.print("Introduce un número: ");
-                    num = scan.nextInt();
-                    System.out.print("Introduce la posición del dígito: ");
-                    d = scan.nextInt();
-                    System.out.println("Dígito en la posición " + d + ": " + digitoN(num, d));
-                    break;
+            case 7:
+                int d;
+                System.out.print("Introduce un número: ");
+                num = scan.nextInt();
+                System.out.print("Introduce la posición del dígito: ");
+                d = scan.nextInt();
+                System.out.println("Dígito en la posición " + d + ": " + digitoN(num, d));
+                break;
 
-                case 8:
+            case 8:
                     /*int numero, digito;
                     System.out.print("Introduce un número: ");
                     numero = scan.nextInt();
@@ -207,34 +207,34 @@ public class ej1 {
                     System.out.println("Posición del dígito " + digito + ": " + posicionDeDigito(numero, digito));
                     break;*/
 
-                case 9:
-                    System.out.println("El número volteado es: ");
-                    break;
+            case 9:
+                System.out.println("El número volteado es: ");
+                break;
 
-                case 10:
-                    System.out.println("El número volteado es: ");
-                    break;
+            case 10:
+                System.out.println("El número volteado es: ");
+                break;
 
-                case 11:
-                    System.out.println("El número volteado es: ");
-                    break;
+            case 11:
+                System.out.println("El número volteado es: ");
+                break;
 
-                case 12:
-                    System.out.println("El número volteado es: ");
-                    break;
+            case 12:
+                System.out.println("El número volteado es: ");
+                break;
 
-                case 13:
-                    System.out.println("El número volteado es: ");
-                    break;
+            case 13:
+                System.out.println("El número volteado es: ");
+                break;
 
-                case 14:
-                    System.out.println("El número volteado es: ");
-                    break;
+            case 14:
+                System.out.println("El número volteado es: ");
+                break;
 
-                default:
-                    System.out.println("Introduce una opción válida");
-
-            }
+            default:
+                System.out.println("Introduce una opción válida");
 
         }
+
+    }
 }
