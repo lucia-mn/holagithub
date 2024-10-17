@@ -27,7 +27,8 @@ public class ej1 {
 
     //2
     public static boolean esPrimo(int num) {
-        if (num <= 1) {
+
+        /*if (num <= 1) {
             return false;
         }
         for (int i = 2; i <= Math.sqrt(num); i++) {
@@ -35,21 +36,27 @@ public class ej1 {
                 return false;
             }
         }
-        return true;
-    }
+        return true;*/
 
-        /*boolean esPrimo;
-        int l = 2;
+        boolean prim = false;
+        int div = 0;
 
-        if (num >= 2 && num/num == 1) {
-
-            esPrimo = true;
-        } else {
-            esPrimo = false;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                div++;
+            }
+            if (div > 2) {
+                break;
+            }
         }
+        if (div == 2) {
+            prim = true;
 
-        return esPrimo;
-    }*/
+
+        }
+        return prim;
+
+    }
 
 
     //3
@@ -99,11 +106,13 @@ public class ej1 {
 
     //7
     public static int digitoN(int num, int num2) {
-        String numStr = String.valueOf(num);
-        if (num2 >= 0 && num2 < numStr.length()) {
-            return Character.getNumericValue(numStr.charAt(num2));
+        int cont = digitos(num);
+        int res = 0;
+        if (num2<cont) {
+            int pot = cont - num2;
+            res = num / (int)Math.pow(10, pot);
         }
-        return -1;
+        return res%10;
     }
 
     /*
@@ -134,22 +143,22 @@ public class ej1 {
         //Scanner sc = new Scanner(System.in);
 
         System.out.println("""
-                    ("Selecciona una opción:");
-                    System.out.println("1. Comprobar si es capicúa");
-                    System.out.println("2. Comprobar si es primo");
-                    System.out.println("3. Encontrar el siguiente número primo");
-                    System.out.println("4. Calcular potencia");
-                    System.out.println("5. Contar dígitos");
-                    System.out.println("6. Voltear número");
-                    System.out.println("7. Devolver dígito en la posición n");
-                    System.out.println("8. Posición dígito");
-                    System.out.println("9. Quitar n dígitos por detrás");
-                    System.out.println("10. Quitar n dígitos por delante");
-                    System.out.println("11. Añadir n dígitos por detrás");
-                    System.out.println("12. Añadir n dígitos por delante");
-                    System.out.println("13. Devolver trozo de número");
-                    System.out.println("14. Juntar dos números");
-                    System.out.println("0. Salir");
+                    Selecciona una opción:
+                    1. Comprobar si es capicúa
+                    2. Comprobar si es primo
+                    3. Encontrar el siguiente número primo
+                    4. Calcular potencia
+                    5. Contar dígitos
+                    6. Voltear número
+                    7. Devolver dígito en la posición n
+                    8. Posición dígito
+                    9. Quitar n dígitos por detrás
+                    10. Quitar n dígitos por delante
+                    11. Añadir n dígitos por detrás
+                    12. Añadir n dígitos por delante
+                    13. Devolver trozo de número
+                    14. Juntar dos números
+                    0. Salir
                     """);
         Scanner scan=new Scanner(System.in);
 
