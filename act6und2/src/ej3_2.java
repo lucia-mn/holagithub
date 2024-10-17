@@ -3,19 +3,22 @@ import java.util.Scanner;
 public class ej3_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int cantidad;
-        int billetes500 = 0;
-        int billetes200 = 0;
-        int billetes100 = 0;
-        int billetes50 = 0;
-        int billetes20 = 0;
-        int billetes10 = 0;
-        int billetes5 = 0;
-        int monedas2 = 0;
-        int monedas1 = 0;
         String salir;
 
+
         do {
+            int cantidad;
+            int billetes500 = 0;
+            int billetes200 = 0;
+            int billetes100 = 0;
+            int billetes50 = 0;
+            int billetes20 = 0;
+            int billetes10 = 0;
+            int billetes5 = 0;
+            int monedas2 = 0;
+            int monedas1 = 0;
+
+
             System.out.println("Introduce la cantidad de dinero:");
             cantidad = scanner.nextInt();
             if (cantidad > 0) {
@@ -88,7 +91,6 @@ public class ej3_2 {
 
             System.out.println("¿Quieres salir? s/n");
             salir = scanner.next().toLowerCase();
-
 
 
         } while (salir.equals("n")); // while = mientras que no pongas n no vas a salir
