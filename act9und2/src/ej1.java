@@ -12,7 +12,7 @@ public class ej1 {
 
 
     //1
-    public static boolean esCapicua(int num) {
+    public static boolean esCapicua(int num) { //nos devuelve un booleano cuando llamamos a esCapicua
         boolean esCapicua;
         if (num == voltea(num))
         {
@@ -20,26 +20,14 @@ public class ej1 {
         } else {
             esCapicua = false;
         }
-
         return esCapicua;
     }
 
 
     //2
     public static boolean esPrimo(int num) {
-
-        /*if (num <= 1) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(num); i++) {
-            if (num % i == 0) {
-                return false;
-            }
-        }
-        return true;*/
-
-        boolean prim = false;
-        int div = 0;
+        boolean primo = false;
+        int div = 0; //contador?
 
         for (int i = 1; i <= num; i++) {
             if (num % i == 0) {
@@ -50,12 +38,9 @@ public class ej1 {
             }
         }
         if (div == 2) {
-            prim = true;
-
-
+            primo = true;
         }
-        return prim;
-
+        return primo;
     }
 
 
@@ -66,7 +51,6 @@ public class ej1 {
         while (!esPrimo(num)) {
             num++;
         }
-
         return num;
     }
 
@@ -108,6 +92,7 @@ public class ej1 {
     public static int digitoN(int num, int num2) {
         int cont = digitos(num);
         int res = 0;
+
         if (num2<cont) {
             int pot = cont - num2;
             res = num / (int)Math.pow(10, pot);
@@ -127,14 +112,90 @@ public class ej1 {
     */
 
 
-    /*
-    public static int posicionDeDigito(int numero, int n) {
-        String numStr = String.valueOf(numero);
-        if (n >= 0 && n < numStr.length()) {
-            return Character.getNumericValue(numStr.charAt(n));
+    //8
+    public static int posicionDigito(int num, int di) {
+        int posicion = 1;
+
+        if (num < 0) {
+            num = Math.abs(num);
+        }
+        while (num > 0) {
+            int digitoActual = num % 10;
+            if (digitoActual == di) {
+                return posicion;
+            }
+            num /= 10;
+            posicion++;
         }
         return -1;
-    }*/
+    }
+
+
+    //9
+    public static int quitaPorDetras(int num, int di) {
+
+        for (int i = 0; i < di; i++) {
+            num /= 10;
+
+        }
+        return num;
+    }
+
+
+    //10
+    public static int quitaPorDelante(int num, int di) {
+        num = voltea(num);
+
+        for (int i = 0; i < di; i++) {
+            num /= 10;
+        }
+        return voltea(num);
+    }
+
+
+    //11
+    public static int pegaPorDetras(int num, int di) {
+        return num * 10 + di;
+    }
+
+
+    //12
+    public static int pegaPorDelante(int num, int di) {
+        /*num = voltea(num);
+
+        while (di < num) {
+            num = num * 10 + di;
+        }
+        return voltea(num);*/
+
+        num = num * 10 + di;
+        return voltea(num);
+    }
+
+
+    //13
+    public static int trozoDeNumero(int num, int di, int di2) {
+        
+        int longitud = digitos(num)
+
+
+
+
+
+    }
+
+    /*
+    trozo (num, 3, 6)
+    5134783 sería igual a 3478 una vez pasado por la funcion;
+
+    numero = digitoN (num, 3)
+
+    3*10 elevado a 0
+    3*10 el 1 + 4
+    3*10 el 2 + 4*10 el 1 + 7
+    3*10 el 3 + 4*10 el 2 + 7*10 el 1 + 8
+     */
+
 
 
 
@@ -143,7 +204,6 @@ public class ej1 {
         //Scanner sc = new Scanner(System.in);
 
         System.out.println("""
-                    Selecciona una opción:
                     1. Comprobar si es capicúa
                     2. Comprobar si es primo
                     3. Encontrar el siguiente número primo
@@ -160,6 +220,7 @@ public class ej1 {
                     14. Juntar dos números
                     0. Salir
                     """);
+
         Scanner scan=new Scanner(System.in);
 
         System.out.println("Elige una opción:");
@@ -204,36 +265,62 @@ public class ej1 {
                 num = scan.nextInt();
                 System.out.print("Introduce la posición del dígito: ");
                 d = scan.nextInt();
-                System.out.println("Dígito en la posición " + d + ": " + digitoN(num, d));
+                System.out.println("Dígito en la posición " + d + ": " +digitoN(num, d));
                 break;
 
             case 8:
-                    /*int numero, digito;
-                    System.out.print("Introduce un número: ");
-                    numero = scan.nextInt();
-                    System.out.print("Introduce el dígito que quieres buscar: ");
-                    digito = scan.nextInt();
-                    System.out.println("Posición del dígito " + digito + ": " + posicionDeDigito(numero, digito));
-                    break;*/
+                int di;
+                System.out.print("Introduce un número: ");
+                num = scan.nextInt();
+                System.out.print("Introduce la posición del dígito que quieres buscar: ");
+                di = scan.nextInt();
+                System.out.println("Posición del dígito " +di + ": " +posicionDigito(num, di));
+                break;
 
             case 9:
-                System.out.println("El número volteado es: ");
+                int dig;
+                System.out.print("Introduce un número: ");
+                num = scan.nextInt();
+                System.out.print("Introduce el número de dígitos que quieres quitar: ");
+                dig = scan.nextInt();
+                System.out.println("El número sin " +dig + " dígitos es: " +quitaPorDetras(num,dig));
                 break;
 
             case 10:
-                System.out.println("El número volteado es: ");
+                int digi;
+                System.out.print("Introduce un número: ");
+                num = scan.nextInt();
+                System.out.print("Introduce el número de dígitos que quieres quitar: ");
+                digi = scan.nextInt();
+                System.out.println("El número sin " +digi + " dígitos es: " +quitaPorDelante(num,digi));
                 break;
 
             case 11:
-                System.out.println("El número volteado es: ");
+                int digit;
+                System.out.print("Introduce un número: ");
+                num = scan.nextInt();
+                System.out.print("Introduce el número que quieres pegar por detrás: ");
+                digit = scan.nextInt();
+                System.out.println("El número más " +digit + " pegado por detrás es: " +pegaPorDetras(num,digit));
                 break;
 
             case 12:
-                System.out.println("El número volteado es: ");
+                int digito;
+                System.out.print("Introduce un número: ");
+                num = scan.nextInt();
+                System.out.print("Introduce el número que quieres pegar por delante: ");
+                digito = scan.nextInt();
+                System.out.println("El número más " +digito + " pegado por delante es: " +pegaPorDelante(num,digito));
                 break;
 
             case 13:
-                System.out.println("El número volteado es: ");
+                System.out.println("Introduce un número");
+                x = pedirnum();
+                System.out.println("Introduce la primera posición");
+                y = pedirnum();
+                System.out.println("Introduce la segunda posición");
+                int z = pedirnum();
+                System.out.println("El número es: "+ trozoDeNumero(x, y, z));
                 break;
 
             case 14:
