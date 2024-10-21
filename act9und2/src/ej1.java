@@ -168,24 +168,13 @@ public class ej1 {
 
     //13
     public static int trozoDeNumero(int num, int inicio, int fin) {
+        int digDelante = inicio - 1;
+        num = quitaPorDelante(num, digDelante);
 
-        inicio = quitaPorDelante(num);
-        fin = quitaPorDetras(num);
+        int trozo = fin - inicio + 1;
+        num = quitaPorDetras(num, digitos(num) - trozo);
 
-        int trozonum = num - (inicio, fin)
-        return trozonum;
-
-        public static int trozoDeNumero(int num, int inicio, int fin) {
-
-            num = quitaPorDelante(num, inicio);
-
-            num = quitaPorDetras(num, fin);
-
-            return num;
-        }
-
-
-        return quitaPorDetras(quitaPorDelante(num, inicio), digitos(num) - fin - 1);
+        return num;
     }
 
     /*
@@ -203,12 +192,13 @@ public class ej1 {
 
     //14
     public static int juntaNumeros(int num1, int num2) {
-        int resultado = num1 + num2;
-        return resultado;
+        int multiplicar = 10;
+
+        while (num2 >= multiplicar) {
+            multiplicar *= 10;}
+
+            return num1 * multiplicar + num2;
     }
-
-
-
 
 
 
@@ -216,9 +206,7 @@ public class ej1 {
         Scanner sc = new Scanner(System.in);
         int num;
 
-        do {
-
-            System.out.println("""
+        System.out.println("""
                     Opciones:
                     1. Comprobar si es capicúa
                     2. Comprobar si es primo
@@ -237,7 +225,7 @@ public class ej1 {
                     0. Salir
                     """);
 
-
+        do {
             System.out.println("Elige una opción:");
             num = sc.nextInt();
 
@@ -295,7 +283,7 @@ public class ej1 {
                     int dig;
                     System.out.print("Introduce un número: ");
                     num = sc.nextInt();
-                    System.out.print("Introduce el número de dígitos que quieres quitar: ");
+                    System.out.print("Introduce el número de dígitos que quieres quitar por detrás: ");
                     dig = sc.nextInt();
                     System.out.println("El número sin " +dig + " dígitos es: " +quitaPorDetras(num,dig));
                     break;
@@ -304,7 +292,7 @@ public class ej1 {
                     int digi;
                     System.out.print("Introduce un número: ");
                     num = sc.nextInt();
-                    System.out.print("Introduce el número de dígitos que quieres quitar: ");
+                    System.out.print("Introduce el número de dígitos que quieres quitar por delante: ");
                     digi = sc.nextInt();
                     System.out.println("El número sin " +digi + " dígitos es: " +quitaPorDelante(num,digi));
                     break;
@@ -337,12 +325,12 @@ public class ej1 {
                     break;
 
                 case 14:
-                    int digitos;
-                    System.out.print("Introduce un número: ");
+                    int num2;
+                    System.out.print("Introduce el primer número: ");
                     num = sc.nextInt();
-                    System.out.print("Introduce el número que quieres pegar por detrás: ");
-                    digitos = sc.nextInt();
-                    System.out.println("El número combinado es: " + juntaNumeros(num, digitos));
+                    System.out.print("Introduce el segundo número: ");
+                    num2 = sc.nextInt();
+                    System.out.println("El número es: " + juntaNumeros(num, num2));
                     break;
 
                 default:
