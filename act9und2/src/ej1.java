@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class ej1 {
 
@@ -113,7 +113,7 @@ public class ej1 {
 
 
     //8
-    public static int posicionDigito(int num, int di) {
+    /*public static int posicionDigito(int num, int di) {
         int posicion = 1;
 
         if (num < 0) {
@@ -168,16 +168,27 @@ public class ej1 {
 
     //13
     public static int trozoDeNumero(int num, int inicio, int fin) {
-        int digDelante = inicio - 1;
-        num = quitaPorDelante(num, digDelante);
 
-        int trozo = fin - inicio + 1;
-        num = quitaPorDetras(num, digitos(num) - trozo);
+        inicio = quitaPorDelante(num);
+        fin = quitaPorDetras(num);
 
-        return num;
+        int trozonum = num - (inicio, fin)
+        return trozonum;
+
+        public static int trozoDeNumero(int num, int inicio, int fin) {
+
+            num = quitaPorDelante(num, inicio);
+
+            num = quitaPorDetras(num, fin);
+
+            return num;
+        }
+
+
+        return quitaPorDetras(quitaPorDelante(num, inicio), digitos(num) - fin - 1);
     }
 
-    /*
+
     trozo (num, 3, 6)
     5134783 sería igual a 3478 una vez pasado por la funcion;
 
@@ -191,22 +202,23 @@ public class ej1 {
 
 
     //14
-    public static int juntaNumeros(int num1, int num2) {
-        int multiplicar = 10;
-
-        while (num2 >= multiplicar) {
-            multiplicar *= 10;}
-
-            return num1 * multiplicar + num2;
-    }
+    /*public static int juntaNumeros(int num1, int num2) {
+        int resultado = num1 + num2;
+        return resultado;
+    }*/
 
 
 
-    public static void main (String[]args){
+
+
+
+    /*public static void main (String[]args){
         Scanner sc = new Scanner(System.in);
         int num;
 
-        System.out.println("""
+        do {
+
+            System.out.println("""
                     Opciones:
                     1. Comprobar si es capicúa
                     2. Comprobar si es primo
@@ -225,7 +237,7 @@ public class ej1 {
                     0. Salir
                     """);
 
-        do {
+
             System.out.println("Elige una opción:");
             num = sc.nextInt();
 
@@ -283,7 +295,7 @@ public class ej1 {
                     int dig;
                     System.out.print("Introduce un número: ");
                     num = sc.nextInt();
-                    System.out.print("Introduce el número de dígitos que quieres quitar por detrás: ");
+                    System.out.print("Introduce el número de dígitos que quieres quitar: ");
                     dig = sc.nextInt();
                     System.out.println("El número sin " +dig + " dígitos es: " +quitaPorDetras(num,dig));
                     break;
@@ -292,7 +304,7 @@ public class ej1 {
                     int digi;
                     System.out.print("Introduce un número: ");
                     num = sc.nextInt();
-                    System.out.print("Introduce el número de dígitos que quieres quitar por delante: ");
+                    System.out.print("Introduce el número de dígitos que quieres quitar: ");
                     digi = sc.nextInt();
                     System.out.println("El número sin " +digi + " dígitos es: " +quitaPorDelante(num,digi));
                     break;
@@ -325,12 +337,12 @@ public class ej1 {
                     break;
 
                 case 14:
-                    int num2;
-                    System.out.print("Introduce el primer número: ");
+                    int digitos;
+                    System.out.print("Introduce un número: ");
                     num = sc.nextInt();
-                    System.out.print("Introduce el segundo número: ");
-                    num2 = sc.nextInt();
-                    System.out.println("El número es: " + juntaNumeros(num, num2));
+                    System.out.print("Introduce el número que quieres pegar por detrás: ");
+                    digitos = sc.nextInt();
+                    System.out.println("El número combinado es: " + juntaNumeros(num, digitos));
                     break;
 
                 default:
@@ -341,4 +353,4 @@ public class ej1 {
         } while (num != 0);
 
     }
-}
+}*/
