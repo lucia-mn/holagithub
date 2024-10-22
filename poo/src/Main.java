@@ -1,7 +1,9 @@
 public class Main {
+
+
     public static void main(String[] args) {
         //crear objeto e importas las características con el new Coche
-        Coche micoche = new Coche(5,4,"seat ibiza", "rojo");
+        Coche micoche = new Coche();
         Coche micoche2 = new Coche();
         //micoche.setPuertas(9);
         micoche2.setPuertas(3);
