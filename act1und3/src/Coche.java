@@ -23,12 +23,11 @@ public class Coche {
 
 
     //getters and setters
+    //puertas
     public int getPuertas() {
         return puertas;
     }
 
-
-    //puertas
     public void setPuertas(int puertas) {
         if(puertas>=3 && puertas<=5){
             this.puertas=puertas;

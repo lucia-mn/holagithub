@@ -1,41 +1,47 @@
 public class Calculadora {
 
-    private int primerNumero;
-    private int segundoNumero;
+    //atributos
+    private double primerNumero;
+    private double segundoNumero;
 
-    public int getPrimerNumero() {
+    //constructor sin nada
+    public Calculadora() {
+    }
+
+    //getters and setters
+    public double getPrimerNumero() {
         return primerNumero;
     }
 
-    public void setPrimerNumero(int primerNumero) {
+    public void setPrimerNumero(double primerNumero) {
         this.primerNumero = primerNumero;
     }
 
-    public int getSegundoNumero() {
+    public double getSegundoNumero() {
         return segundoNumero;
     }
 
-    public void setSegundoNumero(int segundoNumero) {
+    public void setSegundoNumero(double segundoNumero) {
         this.segundoNumero = segundoNumero;
     }
 
 
-    public int getResultadoSuma() {
+    public double getResultadoSuma() {
 
         return primerNumero + segundoNumero;
     }
 
-    public int getResultadoResta() {
+    public double getResultadoResta() {
 
         return primerNumero - segundoNumero;
     }
 
-    public int getMultiplicationResult() {
+    public double getMultiplicationResult() {
 
         return primerNumero * segundoNumero;
     }
 
-    public int getDivisionResult() {
+    public double getDivisionResult() {
 
         if (segundoNumero == 0) {
             return 0;
