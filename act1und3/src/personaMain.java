@@ -11,7 +11,7 @@ public class personaMain {
         persona.setNombre("Patri");    // nombre is set to Patri
         persona.setEdad(18);
         System.out.println("fullName= " + persona.getFullName());
-        System.out.println("adolescente = " + persona. esAdolescente ());
+        System.out.println("adolescente = " + persona.esAdolescente ());
         persona.setApellido("Guerrero");   // se establece apellido a Guerrero
         System.out.println("fullName= " + persona.getFullName());
 

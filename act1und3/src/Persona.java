@@ -7,7 +7,7 @@ public class Persona {
 
 
         //constructor
-    //parametrizar el constructor??!!!
+        // parametrizar el constructor??!!!
         public Persona() {
 
         }
