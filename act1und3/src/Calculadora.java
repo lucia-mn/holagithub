@@ -1,14 +1,8 @@
 public class Calculadora {
 
-    //atributos
     private double primerNumero;
     private double segundoNumero;
 
-    //constructor sin nada
-    public Calculadora() {
-    }
-
-    //getters and setters
     public double getPrimerNumero() {
         return primerNumero;
     }

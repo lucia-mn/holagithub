@@ -10,7 +10,7 @@ public class Coche {
 
 
     //constructor
-    public Coche() {
+    public Coche(int puertas, double peso, double precio, String motor, String modelo, String color, String marca) {
         this.puertas = puertas;
         this.peso = peso;
         this.precio = precio;
@@ -21,13 +21,13 @@ public class Coche {
     }
 
 
-
     //getters and setters
-    //puertas
     public int getPuertas() {
         return puertas;
     }
 
+
+    //puertas
     public void setPuertas(int puertas) {
         if(puertas>=3 && puertas<=5){
             this.puertas=puertas;
@@ -107,6 +107,3 @@ public class Coche {
         this.marca = marca;
     }
 }
-
-
-

@@ -2,7 +2,7 @@ public class calculadoraMain {
 
     public static void main(String[] args) {
 
-    Calculadora calculator = new Calculadora ();
+        Calculadora calculator = new Calculadora ();
 
         calculator.setPrimerNumero(5.0);
         calculator.setSegundoNumero(4);
@@ -12,5 +12,8 @@ public class calculadoraMain {
         calculator.setSegundoNumero(0);
         System.out.println("multiplicación= " + calculator.getMultiplicationResult());
         System.out.println("división= " + calculator.getDivisionResult());
-        }
+    }
 }
+    
+
+
