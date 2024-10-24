@@ -83,7 +83,7 @@ public class Album {
 
     //métodos
     public boolean esSuperVentas() {
-        if (ventas >= 50000) {
+        if (ventas >= 1000000) {
             return true;
         } else {
             return false;
@@ -102,10 +102,3 @@ public class Album {
         }
     }
 }
-
-
-
-
-
-
-
