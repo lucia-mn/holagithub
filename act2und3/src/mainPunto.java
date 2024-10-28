@@ -19,4 +19,11 @@ public class mainPunto {
     distancia (2,2)= 5.0
     distancia ()= 0.0
      */
+
+
+    /*
+    EJ4
+    se inicializa en el constructor, no hay sets;
+    en el caso de haber sets se tendría que inicializar allí.
+    Si lo inicializas en uno hay que hacerlo en los dos!!!*/
 }

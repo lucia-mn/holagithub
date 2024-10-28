@@ -20,4 +20,3 @@ public class Alfombra {
         return coste;
     }
 }
-

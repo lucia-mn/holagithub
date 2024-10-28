@@ -1,21 +1,21 @@
 public class Muro {
 
-    private double ancho;
-    private double alto;
+     private double ancho;
+     private double alto;
 
 
-    // constructor por defecto sin parámetros
-    public Muro() {
-        this.ancho = 0;
-        this.alto = 0;
-    }
+     // constructor por defecto sin parámetros
+     public Muro() {
+         this.ancho = 0;
+         this.alto = 0;
+     }
 
 
-    //constructor con parámetros
-    public Muro(double ancho, double alto) {
-        this.ancho = ancho;
-        this.alto = alto;
-    }
+     //constructor con parámetros
+     public Muro(double ancho, double alto) {
+         this.ancho = ancho;
+         this.alto = alto;
+     }
 
 
 
