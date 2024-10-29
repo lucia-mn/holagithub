@@ -2,7 +2,7 @@ package ej4;
 
 public class Alfombra {
 
-    //atributos
+    //campo
     private double coste;
 
     //constructor
@@ -20,3 +20,4 @@ public class Alfombra {
         return coste;
     }
 }
+

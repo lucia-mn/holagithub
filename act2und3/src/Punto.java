@@ -4,9 +4,10 @@ public class Punto {
     private int x;
     private int y;
 
-
     //constructor
-    public Punto() { //sin parámetros
+
+
+    public Punto() {
 
     }
 
@@ -35,7 +36,7 @@ public class Punto {
 
 
     //métodos
-    public double distancia() { //sin parámetros
+    public double distancia() {
         return Math.sqrt((x*x)+(y*y));
     }
 
@@ -46,5 +47,4 @@ public class Punto {
     public double distancia(Punto otro) {
         return Math.sqrt((otro.x-this.x)*(otro.x-this.x)+(otro.y-this.y)*(otro.y-this.y));
     }
-
 }

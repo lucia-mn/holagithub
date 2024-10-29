@@ -2,7 +2,7 @@ package ej4;
 
 public class Suelo {
 
-    //atributos
+    //campos
     private double ancho;
     private double largo;
 

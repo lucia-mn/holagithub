@@ -2,7 +2,7 @@ package ej4;
 
 public class Calculadora {
 
-    //atributos
+    //campos
     private Suelo suelo;
     private Alfombra alfombra;
 
