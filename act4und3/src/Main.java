@@ -9,6 +9,9 @@ public class Main {
         String s6 = "Hola Mundo";
         String s7 = "mundo";
         String caracter = "Mundo";
+        String s8 = "hola";
+        String cadena = "Hoy estamos a 13 grados";
+        String s9 = "programacion";
 
 
         //1
@@ -26,10 +29,20 @@ public class Main {
         System.out.println(patron(s6, s7));
         //8
         System.out.println(empezarMismoTexto(s7, caracter));
-
-
-
+        //9
+        System.out.println(imprimirIndices(caracter));
+        //10
+        System.out.println(reemplazarCaracter(s3, s4, s6));
+        //11
+        System.out.println(eliminarCaracter(s8, 2));
+        //12
+        System.out.println(revertir(s6));
+        //13
+        System.out.println(devolverSubtexto(cadena, 0, 3));
+        //14
+        System.out.println(caracterRepetido(s9, 3));
     }
+
     /*
     //String s1 = "Andrea";
     String s1 = new String("Andrea");
@@ -103,7 +116,49 @@ public class Main {
     }
 
     //9
+    public static String imprimirIndices(String caracter) {
+        for (int i = 0; i < caracter.length(); i++) {
+            System.out.print(caracter.charAt(i) + " índice " + i + " ");
+        }
+        return caracter;
+    }
 
+    //10
+    public static String reemplazarCaracter(String s3, String s4, String s6) {
+        return s6.replace(s3, s4);
+    }
+
+    //11
+    public static String eliminarCaracter(String s8, int posicion) {
+        if (posicion < 0 || posicion >= s8.length()) {
+            return "Valor inválido";
+        }
+        return s8.substring(0, posicion) + s8.substring(posicion + 1);
+    }
+
+    //12
+    public static String revertir(String s6) {
+        StringBuilder sb = new StringBuilder(s6);
+        sb.reverse();
+        return sb.toString();
+    }
+
+    //13
+    public static String devolverSubtexto(String cadena, int posicion1, int posicion2) {
+        if (posicion1 < 0 || posicion2 >= cadena.length()) {
+            return "Valor inválido";
+        }
+        return cadena.substring(posicion1, posicion2);
+    }
+
+    //14
+    public static String caracterRepetido(String s9, int posicion3) {
+        if (posicion3 < 0 || posicion3 >= s9.length()) {
+            return "Valor inválido";
+        } else {
+            return s9.indexOf(posicion3);
+        }
+
+    }
 
 }
-
