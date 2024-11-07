@@ -12,6 +12,9 @@ public class Main {
         String s8 = "hola";
         String cadena = "Hoy estamos a 13 grados";
         String s9 = "programacion";
+        String s10 = "abbacec";
+        String s11 = "abcdefghijklmnopqrst";
+        int i = 5;
 
 
         //1
@@ -40,15 +43,19 @@ public class Main {
         //13
         System.out.println(devolverSubtexto(cadena, 0, 3));
         //14
-        System.out.println(caracterRepetido(s9, 3));
+        System.out.println(eliminarDuplicado(s9));
+        //15
+        System.out.println(caracterNoRepetido(s10));
+        //16
+        System.out.println(divisible(s11, 5));
     }
 
-    /*
-    //String s1 = "Andrea";
+    //1
+    /*String s1 = "Andrea";
     String s1 = new String("Andrea");
 
     int caracter = s1.indexOf("Andrea");
-     */
+    */
 
     //1
     public static String caracter(String s1, int num) {
@@ -152,13 +159,49 @@ public class Main {
     }
 
     //14
-    public static String caracterRepetido(String s9, int posicion3) {
+    /*public static String caracterRepetido(String s9, int posicion3) {
         if (posicion3 < 0 || posicion3 >= s9.length()) {
             return "Valor inválido";
         } else {
-            return s9.indexOf(posicion3);
+            return s9.indexOf(s9);
         }
+    }*/
 
+    //14
+    public static String eliminarDuplicado(String texto) {
+        StringBuilder resultado = new StringBuilder();
+        for (int i = 0; i < texto.length(); i++) {
+            char caracterActual = texto.charAt(i);
+
+            if (resultado.indexOf(String.valueOf(caracterActual)) == -1) {
+                resultado.append(caracterActual);
+            }
+        }
+        return resultado.toString();
     }
 
+    //15
+    public static String caracterNoRepetido(String s10) {
+        StringBuilder resultado = new StringBuilder();
+        for (int x = 0; x < s10.length(); x++) {
+            char caracterActual = s10.charAt(x);
+
+            if (resultado.indexOf(String.valueOf(caracterActual)) == -1) {
+                resultado.append(caracterActual);
+            }
+        }
+        return resultado.toString();
+    }
+
+    //16
+    public static String divisible(String s11, int i) {
+        StringBuilder resultado = new StringBuilder();
+        for (i = 0; i < s11.length(); i++) {
+            char caracterActual = s11.charAt(i);
+
+            if (resultado.indexOf(String.valueOf(caracterActual)) == -1);
+        }
+        return resultado.toString();
+    }
 }
+
