@@ -1,175 +1,125 @@
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class juegoChinos {
 
+    //int contadorJ = 0;
+    //int contadorM = 0;
+    //int monedas;
+
+
     public static void main(String[] args) {
 
-        //1 selección de las monedas
-        int apuestaMonedas;
-        int monedas = 0;
-        int dado;
-
-
+        int contadorJ = 0;
+        int contadorM = 0;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Elige un número de monedas: ");
-        monedas = sc.nextInt();
-        System.out.println("Monedas jugador: " + numeroMonedas(monedas));
+        do {
 
-    }
+        //System.out.println("Selecciona el número de monedas (0-3): " );
+        int monedasJ = seleccionMonedasJ();
 
-    public static int numeroMonedas (int monedas) {
-        for (int i = 0; i <= 3; i++) {
-            if (monedas > 3) {
-                System.out.println("Introduce un número válido entre 0 y 3");
-            } else if (monedas <= 3) {
-                return monedas;
+        int monedasM = seleccionMonedasM();
+        //System.out.print("Haz una apuesta (0-6): ");
 
-            }
-        }
-        return monedas;
-    }
+        int apuestaJ = apuestaJugador();
 
-    public static int apuestaMaquina (int dado) {
-        dado = 1 + (int) (Math.random()*6);
-        {
-            return dado;
-        }
-    }
+        int apuestaM = apuestaMaquina(monedasM);
 
+        //System.out.println(ganadorRonda(monedasJ, monedasM, apuestaJ, apuestaM));
+        String ganador = ganadorRonda(monedasJ, monedasM, apuestaJ, apuestaM);
 
+        if (ganador == "Jugador") {
+            contadorJ ++;
 
-    //int contadorJugador;
-    //int contadorMaquina;
-
-}
-
-
-
-
-
-/*
-import java.util.Scanner;
-
-public class JuegoChinos {
-
-    // Variables para llevar el puntaje
-    static int puntajeJugador = 0;
-    static int puntajeMaquina = 0;
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("¡Bienvenido al juego de los chinos!");
-
-        boolean turnoJugadorPrimero = true;
-
-        while (puntajeJugador < 5 && puntajeMaquina < 5) {
-            System.out.println("\n--- Nueva Ronda ---");
-            System.out.println("Puntaje: Jugador " + puntajeJugador + " - Máquina " + puntajeMaquina);
-
-            // Ejecuta una ronda, alternando quien comienza
-            if (turnoJugadorPrimero) {
-                jugarRondaJugadorPrimero(scanner);
-            } else {
-                jugarRondaMaquinaPrimero(scanner);
-            }
-
-            // Cambia el turno de quién empieza
-            turnoJugadorPrimero = !turnoJugadorPrimero;
+        } else if (ganador == "Máquina") {
+            contadorM ++;
         }
 
-        mostrarGanadorFinal();
-        scanner.close();
+        } while (contadorJ < 5 && contadorM <5);
+
     }
 
-    // Métodos para jugar una ronda cuando el jugador apuesta primero
-    public static void jugarRondaJugadorPrimero(Scanner scanner) {
-        int monedasJugador = seleccionarMonedasJugador(scanner);
-        int monedasMaquina = seleccionarMonedasMaquina();
 
-        int apuestaJugador = hacerApuestaJugador(scanner, 0, 6);
-        int apuestaMaquina = hacerApuestaMaquina(apuestaJugador, monedasMaquina, 0, 6);
+    public static int seleccionMonedasJ () {
+        Scanner sc = new Scanner(System.in);
+        int monedasJ;
 
-        resolverRonda(monedasJugador, monedasMaquina, apuestaJugador, apuestaMaquina);
-    }
-
-    // Métodos para jugar una ronda cuando la máquina apuesta primero
-    public static void jugarRondaMaquinaPrimero(Scanner scanner) {
-        int monedasJugador = seleccionarMonedasJugador(scanner);
-        int monedasMaquina = seleccionarMonedasMaquina();
-
-        int apuestaMaquina = hacerApuestaMaquina(-1, monedasMaquina, 0, 6);
-        int apuestaJugador = hacerApuestaJugador(scanner, 0, 6, apuestaMaquina);
-
-        resolverRonda(monedasJugador, monedasMaquina, apuestaJugador, apuestaMaquina);
-    }
-
-    // Métodos para que el jugador seleccione su cantidad de monedas (entre 0 y 3)
-    public static int seleccionarMonedasJugador(Scanner scanner) {
-        int monedas;
         do {
             System.out.print("Selecciona el número de monedas (0-3): ");
-            monedas = scanner.nextInt();
-        } while (monedas < 0 || monedas > 3);
-        return monedas;
+            monedasJ = sc.nextInt();
+        } while (monedasJ < 0 || monedasJ > 3);
+
+        return monedasJ;
     }
 
-    // Métodos para que la máquina seleccione aleatoriamente su cantidad de monedas (entre 0 y 3)
-    public static int seleccionarMonedasMaquina() {
-        return (int)(Math.random() * 4);
+    public static int seleccionMonedasM () {
+        int monedasM;
+        monedasM = 1 + (int) (Math.random() * 3);
+
+        return monedasM;
     }
 
-    // Métodos para que el jugador haga su apuesta de la suma total (entre 0 y 6), opcionalmente evitando una apuesta
-    public static int hacerApuestaJugador(Scanner scanner, int min, int max, int... evitar) {
-        int apuesta;
+    public static int apuestaJugador () {
+        Scanner sc = new Scanner(System.in);
+        int apuestaJ;
+
         do {
-            System.out.print("Apuesta el total de monedas (0-6): ");
-            apuesta = scanner.nextInt();
-        } while ((apuesta < min || apuesta > max) || (evitar.length > 0 && apuesta == evitar[0]));
-        return apuesta;
+            System.out.print("Haz una apuesta (0-6): ");
+            apuestaJ = sc.nextInt();
+        } while (apuestaJ < 0 || apuestaJ > 6);
+
+        return apuestaJ;
     }
 
-    // Métodos para que la máquina haga su apuesta de la suma total (entre 0 y 6), evitando una apuesta
-    public static int hacerApuestaMaquina(int evitar, int monedasMaquina, int min, int max) {
-        int apuesta;
+    public static int apuestaMaquina (int monedasM) {
+        int apuestaM;
+        apuestaM = 1 + (int) (Math.random() * 3) + monedasM;
+
+        return apuestaM;
+    }
+
+    public static String ganadorRonda (int monedasJ, int monedasM, int apuestaJ, int apuestaM) {
+
+        int sumaMonedas = monedasJ + monedasM;
+        String ganador;
+
+        if (sumaMonedas == apuestaJ) {
+            System.out.println("El ganador de la ronda es el jugador");
+            ganador = "Jugador";
+
+        } else if (sumaMonedas == apuestaM) {
+            System.out.println("El ganador de la ronda es la máquina");
+            ganador = "Máquina";
+
+        } else {
+            System.out.println("En esta ronda hay empate");
+            ganador = "Empate";
+        }
+
+        return ganador;
+    }
+
+    /*public static void ganadorPartida (int contadorJ, int contadorM) {
         do {
-            apuesta = min + (int)(Math.random() * (max - min + 1));
-        } while (apuesta == evitar || apuesta < monedasMaquina);  // La apuesta debe ser >= monedas seleccionadas
-        System.out.println("La máquina apuesta: " + apuesta);
-        return apuesta;
-    }
+            if (contadorJ == 5) {
+                System.out.println("El ganador es el jugador");
 
-    // Métodos para resolver la ronda y actualizar los puntajes
-    public static void resolverRonda(int monedasJugador, int monedasMaquina, int apuestaJugador, int apuestaMaquina) {
-        int sumaMonedas = monedasJugador + monedasMaquina;
+            } else {
+                System.out.println("El ganador es la máquina");
+            }
 
-        System.out.println("Jugador eligió " + monedasJugador + " monedas y apostó " + apuestaJugador);
-        System.out.println("Máquina eligió " + monedasMaquina + " monedas y apostó " + apuestaMaquina);
-        System.out.println("Total de monedas: " + sumaMonedas);
-
-        if (apuestaJugador == sumaMonedas) {
-            System.out.println("¡Jugador gana la ronda!");
-            puntajeJugador++;
-        } else if (apuestaMaquina == sumaMonedas) {
-            System.out.println("¡Máquina gana la ronda!");
-            puntajeMaquina++;
-        } else {
-            System.out.println("Empate en la ronda, nadie acierta.");
-        }
-    }
-
-    // Métodos para mostrar el ganador final
-    public static void mostrarGanadorFinal() {
-        System.out.println("\n--- Fin del Juego ---");
-        if (puntajeJugador == 5) {
-            System.out.println("¡Felicidades! El jugador ha ganado la serie.");
-        } else {
-            System.out.println("La máquina ha ganado la serie. Mejor suerte la próxima vez.");
-        }
-        System.out.println("Puntaje final: Jugador " + puntajeJugador + " - Máquina " + puntajeMaquina);
-    }
+        } while (contadorJ < 6);
+        System.out.println("Fin de la partida");
+    }*/
 }
 
- */
+
+
+
+
+
+
+
+
