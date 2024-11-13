@@ -14,32 +14,87 @@ public class juegoChinos {
         int contadorJ = 0;
         int contadorM = 0;
         Scanner sc = new Scanner(System.in);
+        boolean turnoJugador = true;
 
         do {
 
-        //System.out.println("Selecciona el número de monedas (0-3): " );
-        int monedasJ = seleccionMonedasJ();
+            //System.out.println("Selecciona el número de monedas (0-3): " );
+            int monedasJ = seleccionMonedasJ();
+            int apuestaJ = apuestaJugador();
 
-        int monedasM = seleccionMonedasM();
-        //System.out.print("Haz una apuesta (0-6): ");
+            int monedasM = seleccionMonedasM();
+            //System.out.print("Haz una apuesta (0-6): ");
+            int apuestaM = apuestaMaquina(monedasM, apuestaJ);
 
-        int apuestaJ = apuestaJugador();
 
-        int apuestaM = apuestaMaquina(monedasM);
+            /*if (turnoJugador) {
+                System.out.println("Monedas Jugador: " + monedasJ);
+                System.out.println("Apuesta Jugador: " + apuestaJ);
 
-        //System.out.println(ganadorRonda(monedasJ, monedasM, apuestaJ, apuestaM));
-        String ganador = ganadorRonda(monedasJ, monedasM, apuestaJ, apuestaM);
+            } else {
+                System.out.println("Apuesta Máquina: " + apuestaM);
+                System.out.println("Monedas Jugador: " + monedasJ);
+            }
 
-        if (ganador == "Jugador") {
-            contadorJ ++;
 
-        } else if (ganador == "Máquina") {
-            contadorM ++;
-        }
+            System.out.println("El jugador escogió " + monedasJ + " monedas y apostó " + apuestaJ);
+            System.out.println("La máquina escogió " + monedasM + " monedas y apostó " + apuestaM);*/
+
+            if (turnoJugador) {
+                // Turno del jugador
+                System.out.println("Turno del jugador para empezar");
+
+                monedasJ = seleccionMonedasJ();
+                apuestaJ = apuestaJugador();
+
+                monedasM = seleccionMonedasM();
+                apuestaM = apuestaMaquina(monedasM, apuestaJ);
+
+                System.out.println("Monedas Jugador: " + monedasJ);
+                System.out.println("Apuesta Jugador: " + apuestaJ);
+                System.out.println("La máquina escogió " + monedasM + " monedas y apostó " + apuestaM);
+
+            } else {
+                // Turno de la máquina
+                System.out.println("Turno de la máquina para empezar");
+
+                monedasM = seleccionMonedasM();
+                apuestaM = apuestaMaquina(monedasM, -1); // La máquina hace su apuesta sin saber la del jugador
+
+                monedasJ = seleccionMonedasJ();
+                apuestaJ = apuestaJugador();
+
+                System.out.println("Apuesta Máquina: " + apuestaM);
+                System.out.println("Monedas Jugador: " + monedasJ + " y Apuesta Jugador: " + apuestaJ);
+                System.out.println("La máquina escogió " + monedasM + " monedas.");
+            }
+
+
+            //System.out.println(ganadorRonda(monedasJ, monedasM, apuestaJ, apuestaM));
+            String ganador = ganadorRonda(monedasJ, monedasM, apuestaJ, apuestaM);
+
+            if (ganador.equals("Jugador")) {
+                contadorJ ++;
+
+            } else if (ganador.equals("Máquina")) {
+                contadorM ++;
+            }
+
+            System.out.println("Resultado: Máquina " + contadorM + " – Jugador " + contadorJ);
+
+            turnoJugador = !turnoJugador;
 
         } while (contadorJ < 5 && contadorM <5);
 
+        if (contadorJ == 5) {
+            System.out.println("El jugador ha ganado la serie de rondas. ¡Enhorabuena!");
+
+        } else {
+            System.out.println("La máquina ha ganado la serie de rondas");
+        }
+
     }
+
 
 
     public static int seleccionMonedasJ () {
@@ -49,6 +104,11 @@ public class juegoChinos {
         do {
             System.out.print("Selecciona el número de monedas (0-3): ");
             monedasJ = sc.nextInt();
+
+            if (monedasJ < 0 || monedasJ > 3) {
+                System.out.println("Eres imbécil no puedes poner más de 3, vuelve a intentarlo <3");
+            }
+
         } while (monedasJ < 0 || monedasJ > 3);
 
         return monedasJ;
@@ -56,7 +116,7 @@ public class juegoChinos {
 
     public static int seleccionMonedasM () {
         int monedasM;
-        monedasM = 1 + (int) (Math.random() * 3);
+        monedasM = (int) (Math.random() * 3);
 
         return monedasM;
     }
@@ -73,9 +133,13 @@ public class juegoChinos {
         return apuestaJ;
     }
 
-    public static int apuestaMaquina (int monedasM) {
+    public static int apuestaMaquina (int monedasM, int apuestaJ) {
         int apuestaM;
-        apuestaM = 1 + (int) (Math.random() * 3) + monedasM;
+
+        do {
+            apuestaM = 1 + (int) (Math.random() * 3) + monedasM;
+
+        } while (apuestaM == apuestaJ);
 
         return apuestaM;
     }
@@ -114,12 +178,3 @@ public class juegoChinos {
         System.out.println("Fin de la partida");
     }*/
 }
-
-
-
-
-
-
-
-
-
