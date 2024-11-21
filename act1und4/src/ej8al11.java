@@ -25,7 +25,7 @@ public class ej8al11 {
 
     //ej11
 
-    // data B = 23 + 12 + 0 + 23 + 0 + 0
+    // data B = 45.0 + 23.0 + 0.0 + 45.0 + 0.0 + 12.0 = 125.0
 
     public static void main(String[] args) {
         int [] dataA = {12, 23, 45, 56};
@@ -40,4 +40,3 @@ public class ej8al11 {
         System.out.println(dataB [0] + dataB [1] + dataB [2] + dataB [3] + dataB [4] + dataB [5]);
     }
 }
-
