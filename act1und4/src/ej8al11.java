@@ -40,3 +40,4 @@ public class ej8al11 {
         System.out.println(dataB [0] + dataB [1] + dataB [2] + dataB [3] + dataB [4] + dataB [5]);
     }
 }
+
