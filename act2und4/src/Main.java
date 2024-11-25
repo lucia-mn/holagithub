@@ -12,15 +12,25 @@ public class Main {
         System.out.println("¿Tamaño?");
         size = sc.nextInt();
 
-        int[] array = new int[0];
+        int[] array = new int[size];
 
         for (int i = 0; i < array.length; i++) {
             System.out.println("Inserta un entero: ");
+            array[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Número " + array[i]);
         }
     }
 
+    // la dimensión del array se mete en el array
+    //int[] array = new int[0]; esto no sería porque le hemos dado al array un valor de 0; sería: int[] array = new int[size];
+
 }
 
+
+//josé andréss
 /*
 2. hay que hacer primero un array.sort (nombre) para que lo ordene de menor a mayor y luego un
 println (nombre[i])
