@@ -13,6 +13,5 @@ public class ej2 {
             numeros[i] = sc.nextInt();
         }
 
-
-    }
+    } //INCOMPLETO!!!
 }
