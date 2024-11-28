@@ -22,7 +22,8 @@
         }
         // para el mínimo hay que poner en vez de max un min
 
-        //PARA IMPRIMIR ARRAYS
+
+        //PARA IMPRIMIR ARRAYS !!!
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }

@@ -36,7 +36,7 @@ public class ej2y3 {
     //para practicar pasar valores a una función que devuelva los valores máximos y mínimos a un entero; pasar el array a entero
 }
 
-//INTEGER: max-min (inicializar las variables con el integre)
+//INTEGER: max-min (inicializar las variables con el integer)
 // public static int maxArray (int[] array) {
 
 // return;
