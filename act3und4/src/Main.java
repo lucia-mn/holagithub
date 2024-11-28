@@ -1,7 +1,9 @@
+import java.util.Arrays;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         int[] array1 = {1,2,3,4};
 
 
@@ -17,8 +19,30 @@ public class Main {
 
 
 
+    }*/
+
+    public static void reverse(int[] array) {
+        System.out.println("Array original: " + Arrays.toString(array));
+
+        int n = array.length;
+        for (int i = 0; i < n / 2; i++) {
+
+            int temp = array[i];
+            array[i] = array[n - 1 - i];
+            array[n - 1 - i] = temp;
+        }
+
+        System.out.println("Array revertido: " + Arrays.toString(array));
+    }
+
+    public static void main(String[] args) {
+
+        int[] array = {1, 2, 3, 4};
+        reverse(array);
     }
 }
+
+
 
 
 
