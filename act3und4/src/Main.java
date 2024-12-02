@@ -42,6 +42,32 @@ public class Main {
     }
 }
 
+//APARTADO H, EJ2, ACTIVIDAD 3
+
+/*for (int i: destino) {
+            System.out.print(i + " ");
+        }
+
+        for (int i: fuente) {
+            System.out.print(i + " ");
+        }
+
+        int contador = 0;
+        boolean verde = false;
+
+        for (int i = 0; i < fuente.length; i++) {
+
+            for (int j = 0; j < destino.length; j++) {
+                if (fuente[i] == destino[i])
+                    contador++;
+            }
+
+            if (contador == fuente.length) {
+                verde = true;
+            }
+        }
+        return verde;*/
+
 
 
 

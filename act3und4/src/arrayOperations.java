@@ -44,19 +44,27 @@ public class arrayOperations {
             System.out.print(i + " ");
         }
 
-        System.out.print("son iguales?: " + iguales(array8, array9));
+        System.out.println("son iguales?: " + iguales(array8, array9));
 
         //h
         int[] destino = {1, 2, 3, 20, -5, 7};
         int[] fuente = {3, 20};
 
-        System.out.print(isArrayOn(destino, fuente));
+        System.out.println("está el array fuente en el destino? " + isArrayOn(destino, fuente));
         //ordenar los arrays con sort en el método
-        //el array destino tiene qu eser menor o igual en longitud que el primero
+        //el array destino tiene que ser menor o igual en longitud que el primero
 
         //i
+        int[] array10 = {1, 2, 4, 6, 3,};
+        ordenarArray(array10);
 
+        //j
+        int[] dst = {1, 2, 3, 20, -5, 7};
+        int[] src = {3, 20};
 
+        //k
+        int[] array11 = {1, 2, 3};
+        removeOddNumbers(array11);
     }
 
 
@@ -80,7 +88,7 @@ public class arrayOperations {
             array2[n - 1 - i] = temp;
         }
 
-        System.out.println("Array revertido: " + Arrays.toString(array2));
+        System.out.println("Array invertido: " + Arrays.toString(array2));
     }
 
     //c
@@ -131,7 +139,7 @@ public class arrayOperations {
     }
 
     //g
-    public static boolean iguales (int[] array8, int[] array9) {
+    public static boolean iguales(int[] array8, int[] array9) {
         boolean verOf = true;
 
         for (int i = 0; i < array8.length; i++) {
@@ -143,49 +151,56 @@ public class arrayOperations {
     }
 
     //h
-    public static boolean isArrayOn (int[] destino, int[] fuente) {
+    public static boolean isArrayOn(int[] destino, int[] fuente) {
         Arrays.sort(destino);
         Arrays.sort(fuente);
 
-        for (int i: destino) {
-            System.out.print(i + " ");
-        }
+        for (int i : destino) {
+            boolean encontrado = true;
 
-        for (int i: fuente) {
-            System.out.print(i + " ");
-        }
-
-        int contador = 0;
-        boolean verde = false;
-
-        for (int i = 0; i < fuente.length; i++) {
-
-            for (int j = 0; j < destino.length; j++) {
-                if (fuente[i] == destino[i])
-                    contador++;
-            }
-
-            if (contador == fuente.length) {
-                verde = true;
-            }
-        }
-        return verde;
-
-        /*for (int i : array10) {
-            boolean encontrado = false;
-
-            for (int j : array11) {
+            for (int j : fuente) {
                 if (i == j) {
-                    encontrado = true;
+                    encontrado = false;
                     break;
                 }
 
-            } if (!encontrado) return false;
+            } if (!encontrado) return true;
         }
-        return true;*/
+        return false;
     }
 
     //i
+    public static int[] ordenarArray(int[] array10) {
+        int[] ordenado = new int[array10.length];
+
+        for (int i = 0; i > array10.length; i++) {
+            ordenado[i] = array10[i];
+        }
+        Arrays.sort(ordenado);
+        return ordenado;
+    }
+
+    //j
+    public static void copy(int[] src, int[] dst) {
+        Arrays.sort(dst);
+        Arrays.sort(src);
+
+    }
+
+    //k
+    public static int[] removeOddNumbers(int[] array11) {
+        for (int i = 0; i < array11.length; i++) {
+            System.out.print(array11[i] + " ");
+
+            if (i/2 == 0) {
+                return array11;
+
+            } else {
+                i = 0;
+            }
+        }
+        return array11;
+    }
 
 }
 
