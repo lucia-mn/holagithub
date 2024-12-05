@@ -22,6 +22,10 @@ public class MesCollector {
         }
 
         this.temperatura = new int[diasMes];
+
+        //dependiendo de los días que tenga el mes le asignas esas celdas al mes, no a todas le asignas 31
+        //calculas los días e inicializas y le das el tamaño del array acorde a los días que tenga el mes
+        //eso lo haces con: this.temperatura = new int[diasMes];
     }
 
 
