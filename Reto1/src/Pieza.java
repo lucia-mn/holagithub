@@ -130,6 +130,39 @@ public class Pieza {
         return comprobarPosicion(movimientosFila, movimientosColumna, posibilidades);
     }
 
+    public int[][] movimientoTorre() {
+        int[][] posibilidades = new int[28][2];
+
+
+        int[] movimientosFila = {-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7};
+
+        int[] movimientosColumna = {-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7};
+
+        int index = 0;
+
+
+        for (int i = 0; i < movimientosFila.length; i++) {
+            for (int j = 0; j < 1; j++) {
+                posibilidades[index][0] = movimientosFila[i];
+                posibilidades[index][1] = 0;
+                index++;
+            }
+        }
+
+
+        for (int i = 0; i < movimientosColumna.length; i++) {
+            for (int j = 0; j < 1; j++) {
+                posibilidades[index][0] = 0;
+                posibilidades[index][1] = movimientosColumna[i];
+                index++;
+            }
+        }
+
+
+        return comprobarPosicion(movimientosFila, movimientosColumna, posibilidades);
+    }
+
+
     public int[][] movimientoAlfil(){
         int[][] posibilidades = new int[13][2];
         int[] movimientosFila = {-1,-1,1,1,-2,-2,2,2,-3,-3,3,3,-4,-4,4,4,-5,-5,5,5,-6,-6,6,6,-7,-7,7,7};
