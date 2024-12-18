@@ -124,51 +124,109 @@ public class Pieza {
     public int[][] movimientoTorre2() {
 
         int[][] posibilidades = new int[28][2];
-        int[] movimientosFila = {-1, 1,-2, 2, 3,-3, 4, -4, 5,-5,  6,-6,  7 ,-7};
-        int[] movimientosColumna = {1, 2, 3, 4, 5, 6, 7};
+        int[] movimientosFila = {1, 2, 3, 4, 5, 6, 7};
+        int[] movimientosColumna = {1,2,3,4,5,6,7};
+
+        for (int i = 1; i < movimientosFila.length; i++) {
+            for (int j = 1; j < movimientosFila[i]; j++) {
+            }
+        }
 
         return comprobarPosicion(movimientosFila, movimientosColumna, posibilidades);
     }
 
-    public int[][] movimientoTorre() {
-        int[][] posibilidades = new int[28][2];
-
-
-        int[] movimientosFila = {-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7};
-
-        int[] movimientosColumna = {-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7};
-
-        int index = 0;
-
-
-        for (int i = 0; i < movimientosFila.length; i++) {
-            for (int j = 0; j < 1; j++) {
-                posibilidades[index][0] = movimientosFila[i];
-                posibilidades[index][1] = 0;
-                index++;
-            }
-        }
-
-
-        for (int i = 0; i < movimientosColumna.length; i++) {
-            for (int j = 0; j < 1; j++) {
-                posibilidades[index][0] = 0;
-                posibilidades[index][1] = movimientosColumna[i];
-                index++;
-            }
-        }
-
-
-        return comprobarPosicion(movimientosFila, movimientosColumna, posibilidades);
-    }
-
-
-    public int[][] movimientoAlfil(){
+    public int[][] movimientoAlfil() {
         int[][] posibilidades = new int[13][2];
         int[] movimientosFila = {-1,-1,1,1,-2,-2,2,2,-3,-3,3,3,-4,-4,4,4,-5,-5,5,5,-6,-6,6,6,-7,-7,7,7};
         int[] movimientosColumna = {-1,1,-1,1,-2,2,-2,2,-3,3,-3,3,-4,4,-4,4,-5,5,-5,5,-6,6,-6,6,-7,7,-7,7};
 
         return comprobarPosicion(movimientosFila,movimientosColumna,posibilidades);
+    }
+
+
+
+    public int[][] movimientoTorre3() {
+        int[][] posibilidades = new int[28][2];
+        int[] movimientosFila = {-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7, 0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        int[] movimientosColumna = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7};
+
+
+        return comprobarPosicion(movimientosFila, movimientosColumna, posibilidades);
+    }
+
+
+
+
+
+    /*public int[][] movimientoTorre4() {
+        int[][] posibilidades = new int[28][2];
+        int[] movimientosFila = {-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7};
+        int[] movimientosColumna = {0};
+
+        int index = 0;
+        for (int i = 0; i < movimientosFila.length; i++) {
+            for (int j = 0; j < movimientosColumna.length; j++) {
+                posibilidades[index][0] = movimientosFila[i];
+                posibilidades[index][1] = movimientosColumna[j];
+                index++;
+            }
+        }
+
+
+        movimientosFila = new int[]{0};
+        movimientosColumna = new int[]{-1, -2, -3, -4, -5, -6, -7, 1, 2, 3, 4, 5, 6, 7};
+
+        for (int i = 0; i < movimientosColumna.length; i++) {
+            for (int j = 0; j < movimientosFila.length; j++) {
+                posibilidades[index][0] = movimientosFila[j];
+                posibilidades[index][1] = movimientosColumna[i];
+                index++;
+            }
+        }
+
+        return comprobarPosicion(new int[]{-7, 7}, new int[]{-7, 7}, posibilidades);
+    }*/
+
+
+
+    public int[][] movimientoTorre5() {
+        int[][] posibilidades = new int[28][2];
+        //int[] movimientosFila = {-1,-2,-3,-4,-5,-6,-7,0,0,0,0,0,0,0,1,2,3,4,5,6,7};
+        //int[] movimientosColumna = {-1,-2,-3,-4,-5,-6,-7,0,0,0,0,0,0,0,1,2,3,4,5,6,7};
+
+        int[] movimientosColumna = new int[28];
+        int[] movimientosFila = new int[28];
+
+        int index = 0;
+        int contador = 0;
+
+        for (int i = 0; i <= 28; i++) {
+            if (i<14) {
+                movimientosColumna[index] = 0;
+
+            } else {
+                movimientosColumna[index] = contador++;
+            }
+        }
+
+        for (int i = 0; i <= 28; i++) {
+            if (i<14) {
+                movimientosFila[index] = 0;
+
+            } else {
+                movimientosFila[index] = contador++;
+            }
+        }
+
+        /*index=0;
+        for (int i = 0; i < movimientosColumna.length; i++) {
+            for (int j = 0; j < 1; j++) {
+                posibilidades[0][index] = movimientosColumna[i];
+                index++;
+            }
+        }*/
+
+        return comprobarPosicion(movimientosFila, movimientosColumna, posibilidades);
     }
 
 }

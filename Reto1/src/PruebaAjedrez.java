@@ -15,7 +15,7 @@ public class PruebaAjedrez {
                 prueba = miPieza.movimientoAlfil();
                 break;
             case 'T':
-                prueba = miPieza.movimientoTorre2();
+                prueba = miPieza.movimientoTorre3();
                 break;
         }
 
