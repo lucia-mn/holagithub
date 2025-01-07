@@ -32,6 +32,8 @@ public class PruebaAjedrez {
             System.out.println();
         }
     }
+
+
         /*Scanner scan = new Scanner(System.in);
         System.out.println("Introduce la pieza (Torre (T), Alfil (A), Peón (P), Dama (D), Caballo (C), Rey (R)): ");
         char pieza = Character.toUpperCase(scan.next().charAt(0));
@@ -45,94 +47,138 @@ public class PruebaAjedrez {
         }
         System.out.println("Introduce la posición inicial: ");*/
 
-    public static Pieza introducirPieza() {
-        Scanner scan = new Scanner(System.in);
-        Pieza nuevaPieza = new Pieza();
-        boolean tipoValido = false;
-        boolean colorValido = false;
-        boolean filaValida = false;
-        boolean columnaValida = false;
+    public class PruebaAjedrez {
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
 
-        // Tipo
-        do {
-            System.out.println("Elige: Torre (T), Alfil (A), Peón (P), Dama (D), Caballo (C), Rey (R): ");
-            String nombrePieza = scan.next();
-            if (nombrePieza.length() != 1) { // Comprobamos que solamente se ha introducido una letra
-                System.out.println("Longitud errónea");
-            } else {
-                char tipo = Character.toUpperCase(nombrePieza.charAt(0));
-                if (tipo == 'T' || tipo == 'P' || tipo == 'A' || tipo == 'D' || tipo == 'R' || tipo == 'C') {
-                    nuevaPieza.setTipo(tipo);
-                    tipoValido = true;
+            // Bienvenida e introducción
+            System.out.println("Bienvenido al programa de Ajedrez Interactivo");
+            System.out.println("En este programa, puedes seleccionar una pieza de ajedrez, definir su color y posición inicial en el tablero.");
+            System.out.println("La casilla donde se encuentra tu pieza seleccionada se iluminará en azul.");
+            System.out.println("Las casillas a las que puede moverse se iluminarán en verde.");
+            System.out.println("Debajo del tablero, también se mostrarán las posibles posiciones de movimiento en formato (e.g., a1, c4, etc.).");
+
+            boolean continuar = true;
+
+            while (continuar) {
+                // Introducir pieza
+                Pieza miPieza = introducirPieza();
+
+                // Aquí se calcularían los movimientos posibles y se mostraría el tablero
+                // (esto se asume que está implementado en otro lugar del código).
+
+                // Preguntar al usuario si quiere continuar o cambiar de pieza
+                System.out.println("¿Quieres continuar con la misma pieza y seleccionar una nueva posición (1), o cambiar de pieza (2)?");
+                System.out.print("Selecciona una opción (1/2): ");
+                int opcion = scan.nextInt();
+
+                if (opcion == 1) {
+                    System.out.println("Continuarás con la misma pieza. Selecciona una nueva posición para moverla.");
+                    // Lógica para seleccionar una nueva posición
+                } else if (opcion == 2) {
+                    System.out.println("Selecciona una nueva pieza para continuar.");
+                    // Reiniciar ciclo para elegir nueva pieza
                 } else {
-                    System.out.println("Tipo no válido, vuelva a intentarlo.");
+                    System.out.println("Opción inválida. El programa se cerrará.");
+                    continuar = false;
                 }
             }
-        } while (!tipoValido);
 
-        // Color
-        do {
-            try {
-                System.out.println("Elige: Blanco (0) o Negro (1): ");
-                int tonalidad = scan.nextInt();
-                scan.nextLine();
+            System.out.println("Gracias por jugar al Ajedrez Interactivo. ¡Hasta la próxima!");
+        }
 
-                if (tonalidad == 0) {
-                    nuevaPieza.setColor(false);
-                    colorValido = true;
-                } else if (tonalidad == 1) {
-                    nuevaPieza.setColor(true);
-                    colorValido = true;
+        public static Pieza introducirPieza() {
+            Scanner scan = new Scanner(System.in);
+            Pieza nuevaPieza = new Pieza();
+            boolean tipoValido = false;
+            boolean colorValido = false;
+            boolean filaValida = false;
+            boolean columnaValida = false;
+
+            // Tipo
+            do {
+                System.out.println("Elige: Torre (T), Alfil (A), Peón (P), Dama (D), Caballo (C), Rey (R): ");
+                String nombrePieza = scan.next();
+                if (nombrePieza.length() != 1) { // Comprobamos que solamente se ha introducido una letra
+                    System.out.println("Longitud errónea");
                 } else {
-                    throw new Exception("Error, valor no considerado (Introduce 1 o 0)");
+                    char tipo = Character.toUpperCase(nombrePieza.charAt(0));
+                    if (tipo == 'T' || tipo == 'P' || tipo == 'A' || tipo == 'D' || tipo == 'R' || tipo == 'C') {
+                        nuevaPieza.setTipo(tipo);
+                        tipoValido = true;
+                    } else {
+                        System.out.println("Tipo no válido, vuelva a intentarlo.");
+                    }
                 }
-            } catch (InputMismatchException noBoolean) {
-                System.out.println("Introduce un valor numérico (1 o 0)");
-                scan.nextLine();
-            } catch (Exception noConsiderado) {
-                System.out.println(noConsiderado.getMessage());
-            }
-        } while (!colorValido);
+            } while (!tipoValido);
 
-        // Posición
-        do {
-            // Columna
-            System.out.print("Columna (letra de la A a la H): ");
-            String letraColumna = scan.next();
-            if (letraColumna.length() != 1) {
-                System.out.println("Longitud errónea");
-            } else {
-                char columna = Character.toUpperCase(letraColumna.charAt(0));
-                int columnaNumerica = codificarColumna(columna);
-                if (columnaNumerica >= 1 && columnaNumerica <= 8) {
-                    nuevaPieza.setPosJ(columnaNumerica);
-                    columnaValida = true;
+            // Color
+            do {
+                try {
+                    System.out.println("Elige: Blanco (0) o Negro (1): ");
+                    int tonalidad = scan.nextInt();
+                    scan.nextLine();
+
+                    if (tonalidad == 0) {
+                        nuevaPieza.setColor(false);
+                        colorValido = true;
+                    } else if (tonalidad == 1) {
+                        nuevaPieza.setColor(true);
+                        colorValido = true;
+                    } else {
+                        throw new Exception("Error, valor no considerado (Introduce 1 o 0)");
+                    }
+                } catch (InputMismatchException noBoolean) {
+                    System.out.println("Introduce un valor numérico (1 o 0)");
+                    scan.nextLine();
+                } catch (Exception noConsiderado) {
+                    System.out.println(noConsiderado.getMessage());
+                }
+            } while (!colorValido);
+
+            // Posición
+            do {
+                // Columna
+                System.out.print("Columna (letra de la A a la H): ");
+                String letraColumna = scan.next();
+                if (letraColumna.length() != 1) {
+                    System.out.println("Longitud errónea");
                 } else {
-                    System.out.println("Error, dato incorrecto");
+                    char columna = Character.toUpperCase(letraColumna.charAt(0));
+                    int columnaNumerica = codificarColumna(columna);
+                    if (columnaNumerica >= 1 && columnaNumerica <= 8) {
+                        nuevaPieza.setPosJ(columnaNumerica);
+                        columnaValida = true;
+                    } else {
+                        System.out.println("Error, dato incorrecto");
+                    }
                 }
-            }
-        }while (!columnaValida);
+            } while (!columnaValida);
 
-        // Fila
-        do{
-            System.out.print("Fila (número del 1 al 8): ");
-            String numeroFila = scan.next();
-            if (numeroFila.length() != 1) {
-                System.out.println("Longitud errónea");
-            } else {
-                char fila = numeroFila.charAt(0);
-                int filaNumerica = codificarFila(fila);
-                if (filaNumerica >= 1 && filaNumerica <= 8) {
-                    nuevaPieza.setPosI(filaNumerica);
-                    filaValida = true;
+            // Fila
+            do {
+                System.out.print("Fila (número del 1 al 8): ");
+                String numeroFila = scan.next();
+                if (numeroFila.length() != 1) {
+                    System.out.println("Longitud errónea");
                 } else {
-                    System.out.println("Error, dato incorrecto");
+                    char fila = numeroFila.charAt(0);
+                    int filaNumerica = codificarFila(fila);
+                    if (filaNumerica >= 1 && filaNumerica <= 8) {
+                        nuevaPieza.setPosI(filaNumerica);
+                        filaValida = true;
+                    } else {
+                        System.out.println("Error, dato incorrecto");
+                    }
                 }
-            }
-        } while (!filaValida);
+            } while (!filaValida);
 
-        return nuevaPieza;
+            return nuevaPieza;
+        }
+
+        // Métodos auxiliares (codificarColumna, codificarFila, etc.) deben estar implementados aquí o en clases asociadas
     }
+
 
 
     public static char[][] codificar(int[][] posibilidades) {
