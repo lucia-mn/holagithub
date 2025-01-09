@@ -59,17 +59,38 @@ public class Pieza {
         return posI;
     }
 
-    public void setPosI(int posI) {
-        this.posI = posI;
-    }
-
     public int getPosJ() {
         return posJ;
+    }
+
+    public void setPosI(int posI) {
+        this.posI = posI;
     }
 
     public void setPosJ(int posJ) {
         this.posJ = posJ;
     }
+
+    /*public boolean setPosI(int posI, int[][] posicionesValidas) {
+        for (int[] posicion : posicionesValidas) {
+            if (posI == posicion[0] && this.posJ == posicion[1]) {
+                this.posI = posI;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean setPosJ(int posJ, int[][] posicionesValidas) {
+        for (int[] posicion : posicionesValidas) {
+            if (this.posI == posicion[0] && posJ == posicion[1]) {
+                this.posJ = posJ;
+                return true;
+            }
+        }
+        return false;
+    }*/
+
 
     public int[][] comprobarPosicion(int[] movimientosFila, int[] movimientosColumna, int[][] posibilidades){
         int contador = 0;
