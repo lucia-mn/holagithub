@@ -9,7 +9,7 @@ public class Impresora {
     //constructor
     public Impresora(boolean impresionDobleCara, int paginasImpresas, int nivelToner) {
         this.impresionDobleCara = impresionDobleCara;
-        this.paginasImpresas = 0;
+        this.paginasImpresas = paginasImpresas;
 
         if (nivelToner >= 0 && nivelToner <= 100) {
             this.nivelToner = nivelToner;
@@ -44,7 +44,7 @@ public class Impresora {
 
     //métodos
     public int nivelTonerActual(int toner) {
-        if (toner <= 0 || toner >= 100) {
+        if (toner < 0 || toner > 100) {
             System.out.println("La cantidad de tóner tiene que ser entre 1 y 100");
             return -1;
 
@@ -57,19 +57,20 @@ public class Impresora {
         return this.nivelToner;
     }
 
-    public int imprimirPaginas() {
-        int paginas;
-        paginas = this.paginasImpresas;
+    public int imprimirPaginas(int paginas) {
 
-        if (this.paginasImpresas == paginas) {
+        if (this.impresionDobleCara && paginas%2==0) {
+            this.paginasImpresas += paginas / 2;
+            return paginas / 2;
+
+        } else if (this.impresionDobleCara && paginas%2 == 1) {
+            this.paginasImpresas += paginas / 2;
+            return paginas / 2 + 1;
+
+        } else {
+            this.paginasImpresas += paginas;
             return paginas;
-
-        } else if (this.impresionDobleCara) {
-            return paginas/2;
-
-        } else this.paginasImpresas += paginas;
-
-        return this.paginasImpresas;
+        }
     }
 
     public int getPaginasImpresas() {
