@@ -1,12 +1,13 @@
 package ej4act4und5;
 
-public class Comida {
+public class Comida extends Bienes {
 
     //atributo
-    public double calorias;
+    protected double calorias;
 
     //constructor
-    public Comida(double calorias) {
+    public Comida(String descripcion, double precio, double calorias) {
+        super(descripcion, precio);
         this.calorias = calorias;
     }
 
@@ -14,7 +15,10 @@ public class Comida {
     @Override
     public String toString() {
         return "Comida{" +
-                "calorias=" + calorias +
+                "\ncalorias=" + calorias +
+                "\n, descripcion='" + descripcion + '\'' +
+                "\n, precio=" + precio +
                 '}';
     }
+
 }

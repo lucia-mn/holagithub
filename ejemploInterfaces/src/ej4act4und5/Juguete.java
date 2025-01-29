@@ -3,7 +3,7 @@ package ej4act4und5;
 public class Juguete extends Bienes implements Imponible {
 
     //atributo
-    public int edadMinima;
+    protected int edadMinima;
 
     //constructor
     public Juguete(String descripcion, double precio, int edadMinima) {
@@ -11,18 +11,18 @@ public class Juguete extends Bienes implements Imponible {
         this.edadMinima = edadMinima;
     }
 
-    //metodos
+    //metodo
     @Override
     public String toString() {
         return "Juguete{" +
-                "edadMinima=" + edadMinima +
-                ", descripcion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                '}';
+                "\nedadMinima=" + edadMinima +
+                "\n, descripcion='" + descripcion + '\'' +
+                "\n, precio=" + precio +
+                "\n, tasaImpuestos=" + calcularImpuestos();
     }
 
     @Override
     public double calcularImpuestos() {
-        return precio * tasaImpuestos;
+        return tasaImpuestos * precio;
     }
 }

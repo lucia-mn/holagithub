@@ -6,6 +6,5 @@ public interface Imponible {
     double tasaImpuestos = 0.06;
 
     //método
-    public double calcularImpuestos();
-
+    double calcularImpuestos();
 }
