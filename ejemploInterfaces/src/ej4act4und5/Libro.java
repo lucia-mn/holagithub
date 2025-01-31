@@ -16,13 +16,17 @@ public class Libro extends Bienes implements Imponible {
     public String toString() {
         return "Libro{" +
                 "\nautor='" + autor + '\'' +
-                "\n, descripcion='" + descripcion + '\'' +
-                "\n, precio=" + precio +
-                "\n, tasaImpuestos=" + calcularImpuestos();
+                ", \ndescripcion='" + descripcion + '\'' +
+                ", \nprecio=" + precio +
+                ", \ntasaImpuestos=" + calcularImpuestos();
     }
 
     @Override
     public double calcularImpuestos() {
         return tasaImpuestos * precio;
+    }
+
+    public String getAutor() {
+        return autor;
     }
 }

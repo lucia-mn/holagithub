@@ -16,9 +16,9 @@ public class Juguete extends Bienes implements Imponible {
     public String toString() {
         return "Juguete{" +
                 "\nedadMinima=" + edadMinima +
-                "\n, descripcion='" + descripcion + '\'' +
-                "\n, precio=" + precio +
-                "\n, tasaImpuestos=" + calcularImpuestos();
+                ", \ndescripcion='" + descripcion + '\'' +
+                ", \nprecio=" + precio +
+                ", \ntasaImpuestos=" + calcularImpuestos();
     }
 
     @Override

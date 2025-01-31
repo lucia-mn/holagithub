@@ -16,8 +16,8 @@ public class Comida extends Bienes {
     public String toString() {
         return "Comida{" +
                 "\ncalorias=" + calorias +
-                "\n, descripcion='" + descripcion + '\'' +
-                "\n, precio=" + precio +
+                ", \ndescripcion='" + descripcion + '\'' +
+                ", \nprecio=" + precio +
                 '}';
     }
 
