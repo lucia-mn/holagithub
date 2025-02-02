@@ -18,4 +18,9 @@ public abstract class Forma {
     public abstract double getArea();
 
     public abstract double getPerimeter();
+
+
+    // Agregar métodos abstractos para forzar implementación en subclases
+    public abstract double getAncho();
+    public abstract double getAlto();
 }

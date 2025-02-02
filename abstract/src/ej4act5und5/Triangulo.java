@@ -12,6 +12,17 @@ public class Triangulo extends Forma{
         this.alto = alto;
     }
 
+    //getters
+    @Override
+    public double getAncho() {
+        return ancho;
+    }
+
+   @Override
+    public double getAlto() {
+        return alto;
+    }
+
     //metodos
     @Override
     public double getPerimeter() {
