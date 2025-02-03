@@ -53,13 +53,11 @@ public class Rectangulo extends Forma implements Redimensionable, Comparable<Rec
 
     //compareTo
     @Override
-    public int compareTo(Rectangulo otro) {
-        return Double.compare(this.getArea(), otro.getArea());
+    public int compareTo(Rectangulo o) {
+        return Double.compare(this.getArea(), o.getArea());
     }
 
     //toString para ver los datos de los rectángulos
-
-
     @Override
     public String toString() {
         return "Rectangulo{" +

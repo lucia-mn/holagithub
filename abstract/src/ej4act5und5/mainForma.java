@@ -70,9 +70,10 @@ public class mainForma {
         Arrays.sort(rectangulos);
 
         System.out.println(" ");
-        System.out.println("Rectángulos después de ordenar por área:");
+        System.out.println("Rectángulos por orden de área:");
         for (Rectangulo r : rectangulos) {
             System.out.println(r);
         }
     }
 }
+
