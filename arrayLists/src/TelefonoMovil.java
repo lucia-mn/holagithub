@@ -1,14 +1,12 @@
-import Ejemplos.Persona;
-
 import java.util.ArrayList;
 
 public class TelefonoMovil {
 
     private String myNumber;
-    private static ArrayList<Contacto> myContacts = new ArrayList<Contacto>();
+    private static ArrayList<Contacto> myContacts;
 
     //constructor
-    public TelefonoMovil(String myNumber, ArrayList<Contacto> myContacts) {
+    public TelefonoMovil(String myNumber) {
         this.myNumber = myNumber;
         this.myContacts = new ArrayList<>();
     }
@@ -21,18 +19,25 @@ public class TelefonoMovil {
         } else return false;
     }
 
-    public static boolean updateContact(Contacto contacto, int newContacto) {
-        if (myContacts.contains(contacto)) {
-            myContacts.get(newContacto);
-            return true;
-        } else return false;
+    public static boolean updateContact(Contacto contactoExistente, Contacto nuevoContacto) {
+        int encontrarPosicion = findContact(contactoExistente);
+        if (encontrarPosicion < 0) {
+            return false;
+        }
+        if (findContact(nuevoContacto.getName()) != 1) {
+            return false;
+        }
+        myContacts.set(encontrarPosicion, nuevoContacto);
+        return true;
     }
 
     public static boolean removeContact(Contacto contacto) {
-        if (myContacts.contains(contacto)) {
-            myContacts.remove(contacto);
-            return true;
-        } else return false;
+        int encontrarPosicion = findContact(contacto);
+        if (encontrarPosicion < 0) {
+            return false;
+        }
+        myContacts.remove(encontrarPosicion);
+        return true;
     }
 
     public static int findContact(Contacto contacto) {
@@ -56,11 +61,12 @@ public class TelefonoMovil {
         return null;
     }
 
-    public static void printContacts () {
+    public static void printContacts() {
         System.out.println("Lista de contactos:");
-        for (Contacto contacto : myContacts) {
-            System.out.println(contacto);
+        for (int i = 0; i < myContacts.size(); i++) {
+            Contacto contacto = myContacts.get(i);
+            System.out.println((i + 1) + " " + contacto.getName() + " " + contacto.getPhoneNumber());
         }
-    }
 
+    }
 }

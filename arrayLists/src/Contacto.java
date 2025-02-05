@@ -1,7 +1,7 @@
 public class Contacto {
 
-    protected String name;
-    protected String phoneNumber;
+    private String name;
+    private String phoneNumber;
 
     //constructor
     public Contacto(String name, String phoneNumber) {
