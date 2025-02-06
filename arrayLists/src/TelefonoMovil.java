@@ -64,8 +64,7 @@ public class TelefonoMovil {
     public static void printContacts() {
         System.out.println("Lista de contactos:");
         for (int i = 0; i < myContacts.size(); i++) {
-            Contacto contacto = myContacts.get(i);
-            System.out.println((i + 1) + " " + contacto.getName() + " " + contacto.getPhoneNumber());
+            System.out.println((i + 1) + ". " + myContacts.get(i).getName() + " " + myContacts.get(i).getPhoneNumber());
         }
 
     }

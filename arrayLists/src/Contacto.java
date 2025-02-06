@@ -23,12 +23,12 @@ public class Contacto {
         return phoneNumber;
     }
 
-    public static Contacto createContact(String name, String phoneNumber) {
+    /*public static Contacto createContact(String name, String phoneNumber) {
 
         //se puede poner aqui o en el main
         Contacto contacto = new Contacto("H", "376");
         return contacto;
 
         //return new Contacto("H", "376"); esto es otra opcion
-    }
+    }*/
 }

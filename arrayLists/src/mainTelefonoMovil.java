@@ -27,11 +27,12 @@ public class mainTelefonoMovil {
         System.out.println("Inserta el número de teléfono: ");
         String phoneNumber = scanner.nextLine();
 
-        Contacto nuevoContacto = Contacto.createContact(name, phoneNumber);
+        //aqui llamas al constructor para crear un nuevo contacto en vez de al metodo createContact en Contacto.java
+        Contacto nuevoContacto = new Contacto(name, phoneNumber);
         if (telefonoMovil.addNewContact(nuevoContacto)) {
             System.out.println("Contacto agregado: " + name + " " + phoneNumber);
         } else {
-            System.out.println("El contacto ya existe en la agenda.");
+            System.out.println("El contacto ya existe en la agenda");
         }
     }
 
@@ -48,9 +49,10 @@ public class mainTelefonoMovil {
         System.out.println("Ingresa el nuevo número de teléfono: ");
         String numTel = scanner.nextLine();
 
-        Contacto nuevoContacto = Contacto.createContact(newName, numTel);
+        //aqui llamas al constructor para crear un nuevo contacto
+        Contacto nuevoContacto = new Contacto(newName, numTel);
         if (telefonoMovil.updateContact(contactoExistente, nuevoContacto)) {
-            System.out.println("Contacto agregado correctamente.");
+            System.out.println("Contacto agregado correctamente");
         } else {
             System.out.println("El contacto ya existe en la agenda.");
         }
