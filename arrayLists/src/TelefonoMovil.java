@@ -19,7 +19,7 @@ public class TelefonoMovil {
         } else return false;
     }
 
-    public static boolean updateContact(Contacto contactoExistente, Contacto nuevoContacto) {
+    /*public static boolean updateContact(Contacto contactoExistente, Contacto nuevoContacto) {
         int encontrarPosicion = findContact(contactoExistente);
         if (encontrarPosicion < 0) {
             return false;
@@ -29,7 +29,7 @@ public class TelefonoMovil {
         }
         myContacts.set(encontrarPosicion, nuevoContacto);
         return true;
-    }
+    }*/
 
     public static boolean removeContact(Contacto contacto) {
         int encontrarPosicion = findContact(contacto);

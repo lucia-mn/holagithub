@@ -1,3 +1,4 @@
+/*
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -51,11 +52,16 @@ public class mainTelefonoMovil {
 
         //aqui llamas al constructor para crear un nuevo contacto
         Contacto nuevoContacto = new Contacto(newName, numTel);
-        if (telefonoMovil.updateContact(contactoExistente, nuevoContacto)) {
-            System.out.println("Contacto agregado correctamente");
-        } else {
-            System.out.println("El contacto ya existe en la agenda.");
+
+        int encontrarPosicion = TelefonoMovil.findContact(contactoExistente);
+        if (encontrarPosicion < 0) {
+            return false;
         }
+        if (findContact(nuevoContacto.getName()) != 1) {
+            return false;
+        }
+        myContacts.set(encontrarPosicion, nuevoContacto);
+        return true;
     }
 
     public static void removeContact() {
@@ -128,3 +134,4 @@ public class mainTelefonoMovil {
         }
     }
 }
+*/
