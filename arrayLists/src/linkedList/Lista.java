@@ -1,22 +1,57 @@
 package linkedList;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-import static Ejemplos.MainList.imprimirMenu;
-
-public class visitarLugares {
+public class Lista {
 
     public static void main(String[] args) {
 
         LinkedList<String> lugares = new LinkedList<String>();
-        lugares.add("Roma");
-        lugares.add("París");
-        lugares.add("Amsterdam");
-        lugares.add("Toronto");
-        lugares.add("Miami");
+        addInOrder(lugares, "Roma");
+        addInOrder(lugares, "París");
+        addInOrder(lugares, "Amsterdam");
+        addInOrder(lugares, "Toronto");
+        addInOrder(lugares, "Miami");
+    }
 
+    public static void printList(LinkedList<String> lugares) {
+        Iterator<String> it = lugares.iterator();
+        while (it.hasNext()) {
+            System.out.println("Nodo: " + it.next());
+        }
+        System.out.println("-----");
+    }
+
+
+    public static boolean addInOrder(LinkedList<String> lugares, String newItem) {
+        ListIterator<String> it = lugares.listIterator();
+        while (it.hasNext()) {
+            int comparacion = it.next().compareTo(newItem);
+            if (comparacion == 0) {
+                //no queremos añadir porque no queremos tener duplicados
+                System.out.println("el lugar " + newItem + " ya está incluido");
+                return false;
+            } else if (comparacion > 0) { //newItem es más pequeño
+                it.previous();
+                it.add(newItem);
+                return true;
+            }
+        }
+        it.add(newItem);
+        return true;
+    }
+
+
+
+
+
+
+
+
+    public static void visitarLugar(LinkedList<String> lugares) {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
         ListIterator<String> it = lugares.listIterator();
@@ -29,12 +64,11 @@ public class visitarLugares {
             imprimirMenu();
         }
 
-
+        //switch
         boolean haciaAdelante = true;
         while(continuar) {
             int opcion = scanner.nextInt();
             scanner.nextLine();
-
             switch (opcion) {
                 case 0:
                     System.out.println("Se acabaron las vacaciones");
@@ -54,7 +88,7 @@ public class visitarLugares {
                     }
                     break;
                 case 2:
-                    if (haciaAdelante) {
+                    if(haciaAdelante) {
                         if (it.hasPrevious())
                             it.previous();
                         haciaAdelante = false;
@@ -71,10 +105,10 @@ public class visitarLugares {
                     break;
             }
         }
-
-
     }
 
+
+    //menu
     public static void imprimirMenu() {
         System.out.println("0 - Para salir\n" +
                 "1 - para ir a la siguiente ciudad\n" +
@@ -82,4 +116,3 @@ public class visitarLugares {
                 "3 - imprimir el menú");
     }
 }
-
