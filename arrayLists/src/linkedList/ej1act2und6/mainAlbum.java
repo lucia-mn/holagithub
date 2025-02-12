@@ -1,11 +1,12 @@
 package linkedList.ej1act2und6;
 
+import linkedList.Lista;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-import static linkedList.Lista.addInOrder;
 
 public class mainAlbum {
 
@@ -26,7 +27,7 @@ public class mainAlbum {
         LinkedList<String> canciones = new LinkedList<>();
         addInOrder(canciones, "24 to 25");
         addInOrder(canciones, "Winter falls");
-        addInOrder(canciones, "Domino eng.ver");
+        addInOrder(canciones, "Domino eng. ver");
         addInOrder(canciones, "Yellow");
         addInOrder(canciones, "Sparks");
         addInOrder(canciones, "Natural");
@@ -34,12 +35,11 @@ public class mainAlbum {
         addInOrder(canciones, "Machine");
         addInOrder(canciones, "Sé lo que hicisteis");
         addInOrder(canciones, "Hablando en plata");
-        addInOrder(canciones, "vampire");
-        addInOrder(canciones, "good 4 u");
+        addInOrder(canciones, "Vampire");
+        addInOrder(canciones, "Good 4 u");
 
 
 
-        Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
         ListIterator<String> it = canciones.listIterator();
 
@@ -47,19 +47,22 @@ public class mainAlbum {
             System.out.println("No se han encontrado canciones en la lista de reproducción");
             return;
         } else {
-            System.out.println("Estás escuchando: " + it.next());
             imprimirMenu();
         }
+
 
         //switch
         boolean haciaAdelante = true;
         while(continuar) {
+
             int opcion = scanner.nextInt();
             scanner.nextLine();
+
             switch (opcion) {
                 case 0:
                     imprimirMenu();
                     break;
+
                 case 1:
                     if (!haciaAdelante) {
                         if (it.hasNext())
@@ -67,12 +70,13 @@ public class mainAlbum {
                         haciaAdelante = true;
                     }
                     if (it.hasNext()) {
-                        System.out.println("Escuchando... " + it.next());
+                        System.out.println("Estás escuchando... " + it.next());
                     } else {
                         System.out.println("Ya no hay más canciones en la lista, has llegado a la última");
                         haciaAdelante = false;
                     }
                     break;
+
                 case 2:
                     if(haciaAdelante) {
                         if (it.hasPrevious())
@@ -80,18 +84,42 @@ public class mainAlbum {
                         haciaAdelante = false;
                     }
                     if (it.hasPrevious()) {
-                        System.out.println("Escuchando... " + it.previous());
+                        System.out.println("Estás escuchando... " + it.previous());
                     } else {
                         System.out.println("Esta es la primera canción de la lista");
                         haciaAdelante = true;
                     }
                     break;
-                case 3:
 
+                case 3:
+                    /*
+                    if (!haciaAdelante) {
+                        if (it.hasNext())
+                            it.next();
+                        haciaAdelante = true;
+                    }
+                    if (it.hasNext()) {
+                        System.out.println("Estás escuchando... " + it.previous());
+                    }
+
+                    if (!haciaAdelante) {
+                        if (it.hasNext())
+                            it.next();
+                        haciaAdelante = true;
+                    }
+                    if (it.hasNext()) {
+                        System.out.println("Estás escuchando... " + it.next());
+                    }
+                    */
+
+                    System.out.println("Estás escuchando de nuevo: " + it.previous());
+                    it.next();
                     break;
                 case 4:
-
+                    System.out.println("-----* Esta es la lista de canciones de la playlist *-----");
+                    imprimirPlaylist(canciones);
                     break;
+
                 case 5:
 
                     break;
@@ -123,7 +151,6 @@ public class mainAlbum {
     }
 
 
-
     public static boolean addInOrder(LinkedList<String> canciones, String nuevaCancion) {
         ListIterator<String> it = canciones.listIterator();
 
@@ -142,6 +169,17 @@ public class mainAlbum {
 
         it.add(nuevaCancion);
         return true;
+    }
+
+    public static void imprimirPlaylist(LinkedList<String> canciones) {
+        if (canciones.isEmpty()) {
+            System.out.println("No hay canciones en la playlist");
+        } else {
+            for (String cancion : canciones) {
+                System.out.println("🎵 " + cancion);
+            }
+        }
+        System.out.println("-----");
     }
 
 
