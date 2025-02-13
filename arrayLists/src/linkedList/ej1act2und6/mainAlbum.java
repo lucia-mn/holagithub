@@ -1,11 +1,8 @@
 package linkedList.ej1act2und6;
 
 import linkedList.Lista;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Scanner;
+import javax.sound.midi.Soundbank;
+import java.util.*;
 
 
 public class mainAlbum {
@@ -50,7 +47,6 @@ public class mainAlbum {
             imprimirMenu();
         }
 
-
         //switch
         boolean haciaAdelante = true;
         while(continuar) {
@@ -60,7 +56,8 @@ public class mainAlbum {
 
             switch (opcion) {
                 case 0:
-                    imprimirMenu();
+                    System.out.println("Saliendo de la lista de reproducción...");
+                    continuar=false;
                     break;
 
                 case 1:
@@ -112,15 +109,28 @@ public class mainAlbum {
                     }
                     */
 
-                    System.out.println("Estás escuchando de nuevo: " + it.previous());
-                    it.next();
+                    try {
+                        System.out.println("Estás escuchando de nuevo: " + it.previous());
+                        it.next();
+                    } catch (NoSuchElementException e) {
+                        System.out.println("No hay canción para repetir");
+                    }
                     break;
+
                 case 4:
                     System.out.println("-----* Esta es la lista de canciones de la playlist *-----");
                     imprimirPlaylist(canciones);
                     break;
 
                 case 5:
+                    imprimirMenu();
+                    break;
+
+                case 6:
+                    
+                    break;
+
+                case 7:
 
                     break;
                 default:
@@ -131,15 +141,19 @@ public class mainAlbum {
     }
 
 
-    //imprimir menu
+    //metodos
     public static void imprimirMenu() {
         System.out.println("Menú: ");
-        System.out.println("0 - Volver a imprimir el menú");
+        System.out.println("0 - Salir de la lista de reproducción");
         System.out.println("1 - Reproducir siguiente canción en la lista");
         System.out.println("2 - Reproducir la canción previa de la lista");
         System.out.println("3 - Repetir la canción actual");
         System.out.println("4 - Imprimir la lista de canciones en la playlist");
-        System.out.println("5 - Salir de la lista de reproducción");
+        System.out.println("5 - Volver a imprimir el menú");
+        System.out.println("6 - Eliminar canción actual de la playlist");
+        System.out.println("7 - Imprimir canciones por álbum");
+        //buscas un álbum y te dicen las canciones que tiene
+
     }
 
     public static Cancion getCancion() {
@@ -176,7 +190,8 @@ public class mainAlbum {
             System.out.println("No hay canciones en la playlist");
         } else {
             for (String cancion : canciones) {
-                System.out.println("🎵 " + cancion);
+                //System.out.println("🎵 " + cancion);
+                System.out.println(cancion);
             }
         }
         System.out.println("-----");
