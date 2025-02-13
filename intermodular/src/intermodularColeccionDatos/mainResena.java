@@ -1,3 +1,5 @@
+package intermodularColeccionDatos;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class mainResena {
         while (!fin) {
             System.out.println(" ");
             System.out.println("*** Introducción de datos de la reseña ***");
+            System.out.println(" ");
 
             String idResena;
             do {
@@ -60,7 +63,7 @@ public class mainResena {
             //añadir reseñas
             Resena resena = new Resena(idResena, idProducto, calificacion, contenido, fPublicacion, idUsuario);
             resenas.add(resena);
-            System.out.println("Reseña añadida correctamente.");
+            System.out.println("Reseña añadida correctamente");
 
             mostrarResenas(resenas);
 

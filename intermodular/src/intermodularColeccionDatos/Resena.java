@@ -1,4 +1,4 @@
-//lucia mendiola
+package intermodularColeccionDatos;//lucia mendiola
 
 public class Resena {
 
@@ -75,13 +75,14 @@ public class Resena {
     //toString
     @Override
     public String toString() {
-        return "Reseña{" +
-                "\nidResena ==> '" + idResena + '\'' +
-                ", \nidProducto ==> " + idProducto +
-                ", \ncalificacion ==> " + calificacion +
-                ", \ncontenido ==> '" + contenido + '\'' +
-                ", \nfPublicacion ==> '" + fPublicacion + '\'' +
-                ", \nidUsuario ==> " + idUsuario +
-                '}';
+        return "📌 Reseña {" +
+                "\nID Reseña: " + idResena +
+                "\nID Producto: " + idProducto +
+                "\nCalificación: " + calificacion +
+                "\nContenido: \"" + contenido + "\"" +
+                "\nFecha Publicación: " + fPublicacion +
+                "\nID Usuario: " + idUsuario +
+                "\n}";
     }
+
 }
