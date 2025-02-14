@@ -1,4 +1,6 @@
-package intermodularColeccionDatos;//lucia mendiola
+package intermodularColeccionDatos;
+
+//lucia mendiola naharro
 
 public class Resena {
 

@@ -3,9 +3,10 @@ package intermodularColeccionDatos;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
-//lucia mendiola
+//lucia mendiola naharro
 
 public class mainResena {
 
@@ -113,4 +114,21 @@ public class mainResena {
             System.out.println(r);
         }
     }
+}
+
+
+
+
+
+
+public boolean removeResena(String idResena) {
+    Iterator<Resena> iterator = resenas.iterator();
+    while (iterator.hasNext()) {
+        Resena resena = iterator.next();
+        if (resena.getIdResena().equals(idResena)) {
+            iterator.remove();
+            return true;
+        }
+    }
+    return false;
 }
