@@ -61,16 +61,20 @@ public class mainAlbum {
                     break;
 
                 case 1:
-                    if (!haciaAdelante) {
-                        if (it.hasNext())
-                            it.next();
-                        haciaAdelante = true;
-                    }
-                    if (it.hasNext()) {
-                        System.out.println("Estás escuchando... " + it.next());
-                    } else {
-                        System.out.println("Ya no hay más canciones en la lista, has llegado a la última");
-                        haciaAdelante = false;
+                    try {
+                        if (!haciaAdelante) {
+                            if (it.hasNext())
+                                it.next();
+                            haciaAdelante = true;
+                        }
+                        if (it.hasNext()) {
+                            System.out.println("Estás escuchando... " + it.next());
+                        } else {
+                            System.out.println("Ya no hay más canciones en la lista, has llegado a la última");
+                            haciaAdelante = false;
+                        }
+                    } catch (ConcurrentModificationException e) {
+                        System.out.println("No se ha encontrado ninguna canción para reproducir");
                     }
                     break;
 
@@ -89,26 +93,6 @@ public class mainAlbum {
                     break;
 
                 case 3:
-                    /*
-                    if (!haciaAdelante) {
-                        if (it.hasNext())
-                            it.next();
-                        haciaAdelante = true;
-                    }
-                    if (it.hasNext()) {
-                        System.out.println("Estás escuchando... " + it.previous());
-                    }
-
-                    if (!haciaAdelante) {
-                        if (it.hasNext())
-                            it.next();
-                        haciaAdelante = true;
-                    }
-                    if (it.hasNext()) {
-                        System.out.println("Estás escuchando... " + it.next());
-                    }
-                    */
-
                     try {
                         System.out.println("Estás escuchando de nuevo: " + it.previous());
                         it.next();
@@ -127,7 +111,37 @@ public class mainAlbum {
                     break;
 
                 case 6:
-                    
+                    //it.current?
+                    if(haciaAdelante) {
+                        try {
+
+                            System.out.println(it.previous() + " se está eliminando...");
+                            System.out.println("La canció se ha eliminado de la playlist");
+                            canciones.remove(it.next());
+                            haciaAdelante = false;
+
+                            //if (it.hasNext())
+                              //  it.next();
+
+                        } catch (ConcurrentModificationException e) {
+                            System.out.println("Estás escuchando... " + it.next());
+                            System.out.println("Ya no hay más canciones en la lista, has llegado a la última");
+
+                        }
+
+                    } else {
+                        if (haciaAdelante) {
+                            System.out.println(it.next() + " se está eliminando...");
+                            System.out.println("La canció se ha eliminado de la playlist");
+                            canciones.remove(it.previous());
+                            haciaAdelante = true;
+
+                        } else{
+                            System.out.println("Estás escuchando... " + it.previous());
+                                if (it.hasPrevious())
+                                    it.previous();
+                        }
+                    }
                     break;
 
                 case 7:
