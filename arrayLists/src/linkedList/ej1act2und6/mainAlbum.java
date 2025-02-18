@@ -9,16 +9,47 @@ public class mainAlbum {
 
     private static Scanner scanner = new Scanner(System.in);
     private static Cancion cancion = new Cancion("Haven", 1.43);
+    //Album album = new Album("in life", "skz");
 
     public static void main(String[] args) {
 
         ArrayList<Album> albums = new ArrayList<>();
 
-        albums.add(new Album("ChristmasEveL", "SKZ"));
+        /*albums.add(new Album("ChristmasEveL", "SKZ"));
         albums.add(new Album("Parachutes", "Coldplay"));
         albums.add(new Album("Origin", "Imagine Dragons"));
         albums.add(new Album("Sin noticias de Holanda", "Melendi"));
-        albums.add(new Album("Sour", "Olivia Rodrigo"));
+        albums.add(new Album("Sour", "Olivia Rodrigo"));*/
+
+        Album album1 = new Album("ChristmasEveL", "SKZ");
+        album1.addCancion("24 to 25", 3.15);
+        album1.addCancion("Winter falls", 3.42);
+        album1.addCancion("Domino eng. ver", 2.55);
+
+        Album album2 = new Album("Parachutes", "Coldplay");
+        album2.addCancion("Yellow", 4.29);
+        album2.addCancion("Sparks", 3.47);
+
+        Album album3 = new Album("Origin", "Imagine Dragons");
+        album3.addCancion("Natural", 3.09);
+        album3.addCancion("Boomerang", 3.07);
+        album3.addCancion("Machine", 3.01);
+
+        Album album4 = new Album("Sin noticias de Holanda", "Melendi");
+        album4.addCancion("Sé lo que hicisteis", 4.12);
+        album4.addCancion("Hablando en plata", 3.50);
+
+        Album album5 = new Album("Sour", "Olivia Rodrigo");
+        album5.addCancion("Vampire", 3.39);
+        album5.addCancion("Good 4 u", 2.58);
+
+
+        albums.add(album1);
+        albums.add(album2);
+        albums.add(album3);
+        albums.add(album4);
+        albums.add(album5);
+
 
 
         LinkedList<String> canciones = new LinkedList<>();
@@ -79,16 +110,20 @@ public class mainAlbum {
                     break;
 
                 case 2:
-                    if(haciaAdelante) {
-                        if (it.hasPrevious())
-                            it.previous();
-                        haciaAdelante = false;
-                    }
-                    if (it.hasPrevious()) {
-                        System.out.println("Estás escuchando... " + it.previous());
-                    } else {
-                        System.out.println("Esta es la primera canción de la lista");
-                        haciaAdelante = true;
+                    try {
+                        if(haciaAdelante) {
+                            if (it.hasPrevious())
+                                it.previous();
+                            haciaAdelante = false;
+                        }
+                        if (it.hasPrevious()) {
+                            System.out.println("Estás escuchando... " + it.previous());
+                        } else {
+                            System.out.println("Esta es la primera canción de la lista");
+                            haciaAdelante = true;
+                        }
+                    } catch (NoSuchElementException e) {
+                        System.out.println("Has llegado al principio de la playlist, ya no hay más canciones");
                     }
                     break;
 
@@ -117,27 +152,32 @@ public class mainAlbum {
 
                             System.out.println(it.previous() + " se está eliminando...");
                             System.out.println("La canció se ha eliminado de la playlist");
-                            canciones.remove(it.next());
+                            //canciones.remove(it.next());
+                            it.remove();
                             haciaAdelante = false;
+
+                            System.out.println("Estás escuchando... " + it.next());
 
                             //if (it.hasNext())
                               //  it.next();
 
                         } catch (ConcurrentModificationException e) {
-                            System.out.println("Estás escuchando... " + it.next());
-                            System.out.println("Ya no hay más canciones en la lista, has llegado a la última");
+                            System.out.println("Ya no hay más canciones en la playlist, has llegado a la última");
 
                         }
 
                     } else {
-                        if (haciaAdelante) {
+                        if (!haciaAdelante) {
                             System.out.println(it.next() + " se está eliminando...");
                             System.out.println("La canció se ha eliminado de la playlist");
-                            canciones.remove(it.previous());
+                            //canciones.remove(it.previous());
+                            it.remove();
                             haciaAdelante = true;
 
-                        } else{
                             System.out.println("Estás escuchando... " + it.previous());
+
+                        } else{
+                            System.out.println("Ya no hay más canciones en la playlist, has llegado a la primera");
                                 if (it.hasPrevious())
                                     it.previous();
                         }
@@ -145,8 +185,15 @@ public class mainAlbum {
                     break;
 
                 case 7:
-
+                    System.out.println("Canciones organizadas por álbum: ");
+                    for (Album album : albums) {
+                        System.out.println(album.getNombre() + " - " + album.getArtista());
+                        for (Cancion cancion : album.getCanciones()) {
+                            System.out.println(" * " + cancion.getTitulo() + " (" + cancion.getDuracion() + " min)");
+                        }
+                    }
                     break;
+
                 default:
                     System.out.println("Opción no válida, introduce un número del menú de opciones");
                     break;
@@ -210,6 +257,5 @@ public class mainAlbum {
         }
         System.out.println("-----");
     }
-
 
 }

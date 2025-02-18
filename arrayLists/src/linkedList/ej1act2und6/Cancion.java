@@ -17,6 +17,10 @@ public class Cancion {
         return titulo;
     }
 
+    public double getDuracion() {
+        return duracion;
+    }
+
     //toString
     @Override
     public String toString() {

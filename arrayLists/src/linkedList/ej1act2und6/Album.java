@@ -14,9 +14,29 @@ public class Album {
     public Album(String nombre, String artista) {
         this.nombre = nombre;
         this.artista = artista;
+        this.canciones = new ArrayList<>();
+    }
+
+
+    //getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getArtista() {
+        return artista;
+    }
+
+    public ArrayList<Cancion> getCanciones() {
+        return canciones;
+    }
+
+    public Cancion getCancion() {
+        return cancion;
     }
 
     Cancion cancion = new Cancion("Haven", 1.43);
+
 
     //metodos
     private Cancion findSong(String tituloCancion) {
@@ -41,6 +61,10 @@ public class Album {
         return true;
     }
 
+    public void addCancion(String tituloCancion, double duracion) {
+        this.canciones.add(new Cancion(tituloCancion, duracion));
+    }
+
     public boolean addToPlaylist(int numeroPista, LinkedList<Cancion> playlist) {
         int index = numeroPista -1;
 
@@ -54,6 +78,4 @@ public class Album {
         return true;
     }
 
-
 }
-
