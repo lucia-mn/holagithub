@@ -1,12 +1,26 @@
 package heroesReino1J;
 
+import java.util.LinkedList;
+import java.util.ListIterator;
 import java.util.Scanner;
+
+import static linkedList.Lista.addInOrder;
 
 public class mainHeroe {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        LinkedList<String> tipoHeroes = new LinkedList<>();
+        addInOrder(tipoHeroes, "Guerrero/a");
+        addInOrder(tipoHeroes, "Mago/a");
+        addInOrder(tipoHeroes, "Arquero/a");
+        addInOrder(tipoHeroes, "Asesino/a");
+
+        Heroe heroe = new Heroe()
+
+
+        imprimirMenu();
         boolean continuar = true;
         while(continuar) {
 
@@ -15,9 +29,11 @@ public class mainHeroe {
 
             switch (opcion) {
                 case 0:
+                    imprimirMenu();
                     break;
 
                 case 1:
+                    Heroe.ad
                     break;
 
                 case 2:
@@ -50,6 +66,7 @@ public class mainHeroe {
     //metodos del main
     public static void imprimirMenu() {
         System.out.println("Menú: ");
+        System.out.println("0 - Imprimir el menú");
         System.out.println("1 - Añadir un nuevo héroe");
         System.out.println("2 - Añadir un arma nueva al arsenal");
         System.out.println("3 - Eliminar un héroe por su nombre");
@@ -57,4 +74,25 @@ public class mainHeroe {
         System.out.println("5 - Listar todos los héroes registrados en el gremio");
         System.out.println("6 - Salir del programa");
     }
+
+    public static boolean addInOrder(LinkedList<String> tipoHeroes, String nuevoHeroe) {
+        ListIterator<String> it = tipoHeroes.listIterator();
+        while (it.hasNext()) {
+            int comparacion = it.next().compareTo(nuevoHeroe);
+
+            if (comparacion == 0) {
+                System.out.println("El héroe " + nuevoHeroe + " ya ha sido admitido en el gremio");
+                return false;
+            } else if (comparacion > 0) {
+                it.previous();
+                it.add(nuevoHeroe);
+                return true;
+            }
+        }
+        it.add(nuevoHeroe);
+        return true;
+    }
+
+
+
 }
