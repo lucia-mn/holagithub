@@ -19,6 +19,6 @@ public class Mago extends Heroe {
 
     //metodo
     public void hechizar() {
-        System.out.println(nombre + " hechiza con un hechizo hechizante fuerte, con " + mana + " puntos de maná");
+        System.out.println(nombre + " hechiza con un hechizo hechizante, con " + mana + " puntos de maná");
     }
 }

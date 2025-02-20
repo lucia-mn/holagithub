@@ -16,4 +16,9 @@ public class Asesino extends Heroe {
     public int getSigilo() {
         return sigilo;
     }
+
+    //metodo
+    public void disparar() {
+        System.out.println(nombre + " acecha entre las sombras, con un total de " + sigilo + " asesinatos");
+    }
 }

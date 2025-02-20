@@ -16,4 +16,9 @@ public class Arquero extends Heroe {
     public int getPrecision() {
         return precision;
     }
+
+    //metodo
+    public void disparar() {
+        System.out.println(nombre + " dispara la flecha de su arco, con una precisión del " + precision + " %");
+    }
 }

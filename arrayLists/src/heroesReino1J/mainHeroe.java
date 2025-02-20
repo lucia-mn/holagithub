@@ -12,11 +12,11 @@ public class mainHeroe {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        LinkedList<String> tipoHeroes = new LinkedList<>();
+        /* LinkedList<String> tipoHeroes = new LinkedList<>();
         addInOrder(tipoHeroes, "Guerrero/a");
         addInOrder(tipoHeroes, "Mago/a");
         addInOrder(tipoHeroes, "Arquero/a");
-        addInOrder(tipoHeroes, "Asesino/a");
+        addInOrder(tipoHeroes, "Asesino/a"); */
 
 
 
@@ -25,7 +25,8 @@ public class mainHeroe {
         Heroe heroe = new Heroe("lucia", 100, 1000, "espada", "maga");
 
         ArrayList<Arma> armas = new ArrayList<>();
-        ArrayList<Heroe> tipoHeroes = new ArrayList<>();
+
+        ArrayList<String> tipoHeroes = new ArrayList<>();
         addInOrder(tipoHeroes, "Guerrero/a");
         addInOrder(tipoHeroes, "Mago/a");
         addInOrder(tipoHeroes, "Arquero/a");
@@ -50,6 +51,7 @@ public class mainHeroe {
                     break;
 
                 case 1:
+                    heroe.addHero("vhg", 12, 12, armas, tipoHeroes);
 
                     break;
 
@@ -92,7 +94,7 @@ public class mainHeroe {
         System.out.println("6 - Salir del programa");
     }
 
-    public static boolean addInOrder(LinkedList<String> tipoHeroes, String nuevoHeroe) {
+    public static boolean addInOrder(ArrayList<String> tipoHeroes, String nuevoHeroe) {
         ListIterator<String> it = tipoHeroes.listIterator();
         while (it.hasNext()) {
             int comparacion = it.next().compareTo(nuevoHeroe);

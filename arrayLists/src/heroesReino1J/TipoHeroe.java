@@ -1,4 +1,4 @@
-/* package heroesReino1J;
+package heroesReino1J;
 
 public class TipoHeroe {
 
@@ -42,4 +42,6 @@ public class TipoHeroe {
     }
 
     //metodos
-} */
+
+
+}
