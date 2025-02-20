@@ -15,8 +15,8 @@ public class Heroe {
         this.nombre = nombre;
         this.nivel = nivel;
         this.puntosVida = puntosVida;
-        this.armas = (armas != null) ? armas : new ArrayList<>(); // Evita null
-        this.tipoHeroes = (tipoHeroes != null) ? tipoHeroes : new ArrayList<Heroe>(); // Evita null
+        //this.armas = (armas != null) ? armas : new ArrayList<>(); // Evita null
+        //this.tipoHeroes = (tipoHeroes != null) ? tipoHeroes : new ArrayList<Heroe>(); // Evita null
     }
 
     //getters

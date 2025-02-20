@@ -1,5 +1,6 @@
 package heroesReino1J;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.Scanner;
@@ -17,7 +18,23 @@ public class mainHeroe {
         addInOrder(tipoHeroes, "Arquero/a");
         addInOrder(tipoHeroes, "Asesino/a");
 
-        Heroe heroe = new Heroe()
+
+
+
+
+        Heroe heroe = new Heroe("lucia", 100, 1000, "espada", "maga");
+
+        ArrayList<Arma> armas = new ArrayList<>();
+        ArrayList<Heroe> tipoHeroes = new ArrayList<>();
+        addInOrder(tipoHeroes, "Guerrero/a");
+        addInOrder(tipoHeroes, "Mago/a");
+        addInOrder(tipoHeroes, "Arquero/a");
+        addInOrder(tipoHeroes, "Asesino/a");
+
+        Guerrero guerrero = new Guerrero("Thor", 1, 100, armas, tipoHeroes, 20);
+        guerrero.atacar();
+
+
 
 
         imprimirMenu();
@@ -33,7 +50,7 @@ public class mainHeroe {
                     break;
 
                 case 1:
-                    Heroe.ad
+
                     break;
 
                 case 2:
