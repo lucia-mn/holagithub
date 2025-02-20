@@ -8,15 +8,13 @@ public class Heroe {
     protected int nivel;
     protected int puntosVida;
     protected ArrayList<Arma> armas;
-    protected ArrayList<Heroe> tipoHeroes;
 
     //constructor
-    public Heroe(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas, ArrayList<Heroe> tipoHeroes) {
+    public Heroe(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.puntosVida = puntosVida;
-        //this.armas = (armas != null) ? armas : new ArrayList<>(); // Evita null
-        //this.tipoHeroes = (tipoHeroes != null) ? tipoHeroes : new ArrayList<Heroe>(); // Evita null
+        this.armas = armas != null ? armas : new ArrayList<>(); // Evita null
     }
 
     //getters
@@ -36,8 +34,77 @@ public class Heroe {
         return armas;
     }
 
-    public ArrayList<Heroe> getTipoHeroes() {
-        return tipoHeroes;
+    //metodos
+    // Método para añadir un arma al héroe
+    public void addArma(Arma arma) {
+        if (arma != null) {
+            armas.add(arma);
+            System.out.println(arma.getNombre() + " ha sido añadida a " + nombre);
+        }
+    }
+
+    // Método para eliminar un arma del héroe
+    public void eliminarArma(Arma arma) {
+        if (armas.remove(arma)) {
+            System.out.println(arma.getNombre() + " ha sido eliminada de " + nombre);
+        } else {
+            System.out.println(nombre + " no tiene esa arma.");
+        }
+    }
+
+    // Método toString para representar el héroe
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nombre: ").append(nombre)
+                .append(", Nivel: ").append(nivel)
+                .append(", Puntos de Vida: ").append(puntosVida)
+                .append(", Armas: ");
+
+        if (armas.isEmpty()) {
+            sb.append("Ninguna");
+        } else {
+            for (Arma arma : armas) {
+                sb.append(arma.getNombre()).append(" (Daño: ").append(arma.getDanyo()).append("), ");
+            }
+        }
+        return sb.toString();
+    }
+}
+
+
+
+/*public class Heroe {
+
+    protected String nombre;
+    protected int nivel;
+    protected int puntosVida;
+    protected ArrayList<Arma> armas;
+    protected ArrayList<Heroe> tipoHeroes;
+
+    // Constructor
+    public Heroe(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas) {
+        this.nombre = nombre;
+        this.nivel = nivel;
+        this.puntosVida = puntosVida;
+        this.armas = (armas != null) ? armas : new ArrayList<>(); // Evita null
+    }
+
+    // Getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public int getPuntosVida() {
+        return puntosVida;
+    }
+
+    public ArrayList<Arma> getArmas() {
+        return armas;
     }
 
 
@@ -50,6 +117,15 @@ public class Heroe {
         return false;
     }
 
+    public boolean addHero(String nombreHeroe, int nivel, int puntosVida, ArrayList<Arma> armas) {
+        if (nombreHeroe == null || nombreHeroe.isEmpty()) {
+            return false;
+        }
+
+        Heroe nuevoHeroe = new Heroe(nombreHeroe, nivel, puntosVida, armas);
+        return true;
+    }
+
     public int findHero(String nombre) {
         for (int i = 0; i < tipoHeroes.size(); i++) {
             if (tipoHeroes.get(i).getNombre().equalsIgnoreCase(nombre)) {
@@ -59,37 +135,5 @@ public class Heroe {
         return -1;
     }
 
-    public boolean addHero(String nombreHeroe, int nivel, int puntosVida, ArrayList<Arma> armas, ArrayList<Heroe> tipoHeroes) {
-        if (nombreHeroe == null || nombreHeroe.isEmpty()) {
-            return false;
-        }
+}*/
 
-        if (findHero(nombre) != -1) {
-            return false;
-        }
-
-        Heroe nuevoHeroe = new Heroe(nombreHeroe, nivel, puntosVida, armas, tipoHeroes);
-        this.tipoHeroes.add(nuevoHeroe);
-        return true;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
