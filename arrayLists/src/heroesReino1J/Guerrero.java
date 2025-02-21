@@ -7,8 +7,8 @@ public class Guerrero extends Heroe {
     protected int fuerza;
 
     //constructor
-    public Guerrero(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas, ArrayList<Heroe> tipoHeroes, int fuerza) {
-        super(nombre, nivel, puntosVida, armas, tipoHeroes);
+    public Guerrero(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas, int fuerza) {
+        super(nombre, nivel, puntosVida, armas);
         this.fuerza = fuerza;
     }
 

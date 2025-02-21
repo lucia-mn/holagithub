@@ -2,18 +2,18 @@ package heroesReino1J;
 
 public class Arma {
 
-    protected String nombre;
+    protected String nombreArma;
     protected int danyo;
 
     //constructor
-    public Arma(String nombre, int danyo) {
-        this.nombre = nombre;
+    public Arma(String nombreArma) {
+        this.nombreArma = nombreArma;
         this.danyo = danyo;
     }
 
     //getters
     public String getNombre() {
-        return nombre;
+        return nombreArma;
     }
 
     public int getDanyo() {

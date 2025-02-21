@@ -34,25 +34,25 @@ public class Heroe {
         return armas;
     }
 
+
     //metodos
-    // Método para añadir un arma al héroe
     public void addArma(Arma arma) {
         if (arma != null) {
             armas.add(arma);
-            System.out.println(arma.getNombre() + " ha sido añadida a " + nombre);
+            System.out.println(arma.getNombre() + " el arma " + nombre + " ha sido añadida al arsenal");
         }
     }
 
-    // Método para eliminar un arma del héroe
     public void eliminarArma(Arma arma) {
         if (armas.remove(arma)) {
-            System.out.println(arma.getNombre() + " ha sido eliminada de " + nombre);
+            System.out.println(arma.getNombre() + " el arma " + nombre + " ha sido eliminada del arsenal");
         } else {
-            System.out.println(nombre + " no tiene esa arma.");
+            System.out.println(nombre + " el guerrero ha perdido esta arma en una feroz batalla");
         }
     }
 
-    // Método toString para representar el héroe
+
+    //toString
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

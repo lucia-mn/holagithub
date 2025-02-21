@@ -7,8 +7,8 @@ public class Mago extends Heroe {
     protected int mana;
 
     //constructor
-    public Mago(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas, ArrayList<Heroe> tipoHeroes, int mana) {
-        super(nombre, nivel, puntosVida, armas, tipoHeroes);
+    public Mago(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas, int mana) {
+        super(nombre, nivel, puntosVida, armas);
         this.mana = mana;
     }
 

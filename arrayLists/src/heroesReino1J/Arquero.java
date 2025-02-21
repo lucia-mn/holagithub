@@ -7,8 +7,8 @@ public class Arquero extends Heroe {
     protected int precision;
 
     //constructor
-    public Arquero(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas, ArrayList<Heroe> tipoHeroes, int precision) {
-        super(nombre, nivel, puntosVida, armas, tipoHeroes);
+    public Arquero(String nombre, int nivel, int puntosVida, ArrayList<Arma> armas, int precision) {
+        super(nombre, nivel, puntosVida, armas);
         this.precision = precision;
     }
 
