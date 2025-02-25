@@ -6,7 +6,7 @@ public class Arma {
     protected int danyo;
 
     //constructor
-    public Arma(String nombreArma) {
+    public Arma(String nombreArma, int danyo) {
         this.nombreArma = nombreArma;
         this.danyo = danyo;
     }
