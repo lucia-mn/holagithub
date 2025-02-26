@@ -165,27 +165,36 @@ public class mainHeroe {
                 break;
         }
 
+        //todos los metdoos dentro de la clase no deben llevar static, ya qu ete dan los mismos valores
+        //metodoos com oañadir, eliminar, new etc
+                //se le llama cuando instancias un objeto en el main
+
 
         System.out.println("Elige un arma para tu héroe: ");
-        listarArmas(armas); 
+        listarArmas(armas);
+
+        if (armas.isEmpty()) {
+            System.out.println("No hay armas disponibles, a tu guerrero le toca luchar a puñetazos");
+            return;
+        }
+
         int elegirArma = scanner.nextInt();
-        
-        if (elegirArma >= 0 && elegirArma < armas.size()) {
+
+        if (elegirArma < 0 || elegirArma >= armas.size()) {
+            System.out.println("Arma no disponible, por favor elige una de la lista");
+
+        } else {
             Arma armaSeleccionada = armas.get(elegirArma);
             System.out.println("Detalles del arma: ");
             System.out.println("Nombre: " + armaSeleccionada.getNombre());
             System.out.println("Daño: " + armaSeleccionada.getDanyo());
-        } else {
-            System.out.println("Opción no válida, por favor elige un número de la lista");
         }
 
-        
-        if (nuevoHeroe != null) {
-            if (addInOrder(heroes, nuevoHeroe)) {
-                System.out.println("¡" + nuevoHeroe.getNombre() + " se ha unido al gremio con su nueva arma!");
-            } else {
-                System.out.println("No se ha podido añadir el héroe al gremio :(");
-            }
+
+        if (addInOrder(heroes, nuevoHeroe)) {
+            System.out.println("¡" + nuevoHeroe.getNombre() + " se ha unido al gremio con su nueva arma!");
+        } else {
+            System.out.println("No se ha podido añadir el héroe al gremio :(");
         }
     }
 
