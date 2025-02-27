@@ -15,6 +15,13 @@ public class mainHeroe {
         //HERENCIA, COMPOSICION, ARRAY LISTS
         //LINKED LIST MENOS IMPORTANTE
 
+        //herencia, composcion, coleccion, poo
+        //añadir, eliminar, etc
+        //menu
+        //operacion --> mensaje --> menu etc.
+        //interfaces? iterator? linked list? compare to? clases abstractas?
+
+
         imprimirMenu();
         boolean continuar = true;
         while (continuar) {

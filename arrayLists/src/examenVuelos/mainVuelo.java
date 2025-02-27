@@ -1,4 +1,4 @@
-package examenVuelos;
+/*package examenVuelos;
 
 import linkedList.ej1act2und6Cancion.Album;
 
@@ -107,7 +107,7 @@ public class mainVuelo {
         return true;
     }*/
 
-    //impirmir los vuelos
+    /*//impirmir los vuelos
     public static void imprimirVuelos(ArrayList<Vuelo> vuelos) {
         System.out.println("Lista de vuelos:");
         for (Vuelo vuelo : vuelos) {
@@ -118,4 +118,4 @@ public class mainVuelo {
                     ", Clase: " + vuelo.getClase());
         }
     }
-}
+}*/
