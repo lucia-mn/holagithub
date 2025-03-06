@@ -17,8 +17,8 @@ public class Main {
 
 
         ubicaciones.get(1).addExit("N", 5);
-        ubicaciones.get(1).addExit("S", 3);
-        ubicaciones.get(1).addExit("E", 4);
+        ubicaciones.get(1).addExit("E", 3);
+        ubicaciones.get(1).addExit("S", 4);
         ubicaciones.get(1).addExit("O", 2);
         ubicaciones.get(1).addExit("Q", 0);
 
@@ -39,25 +39,25 @@ public class Main {
 
     public void mapa() {
         System.out.println("""
-                                   ============
-                                   |          |
-                     |-----------→ | 5.Bosque |
-                     |             |          |
-                     |             ============
+                                   +==========+               ↑
+                                   |          |               |
+                     |-----------→ | 5.Bosque |               | N
+                     |             |          |               |
+                     |             +==========+               |
                      |                  ↑
-                     ↓                  ↓ 
-                ===========        =============        ==============
+                     ↓                  ↓
+                +=========+        +===========+        +============+
                 |         |        |           |        |            |
                 | 2.Playa | ←----- | 1.Montaña | ←----→ | 3.Edificio |
                 |         |        |           |        |            |
-                ===========        =============        ==============
+                +=========+        +===========+        +============+
                      ↑                  ↑
-                     |                  ↓ 
-                     |             ============
+                     |                  ↓
+                     |             +==========+
                      |             |          |
                      |------------ | 4.Puente |
                                    |          |
-                                   ============
+                                   +==========+
                 """);
     }
 
@@ -66,12 +66,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int ubicacionActual = 1;
         boolean seguir = true;
-        mapa();
 
         while (seguir) {
+            mapa();
             Ubicacion ubicacion = ubicaciones.get(ubicacionActual);
             System.out.println(ubicacion.getDescripcion());
-            System.out.print("Tus salidas válidas son: ");
+            System.out.print("Puedes ir a estas ubicaciones: ");
 
             for (String salida : ubicacion.getExits().keySet()) {
                 System.out.print(salida + " ");
@@ -82,7 +82,8 @@ public class Main {
             ubicacionActual = mover(ubicacionActual, entrada);
 
             if (ubicacionActual == 0) {
-                System.out.println("Has salido del juego");
+                System.out.println("Saliendo del juego...");
+                System.out.println("Has vuelto a la clase de programación");
                 seguir = false;
             }
         }
