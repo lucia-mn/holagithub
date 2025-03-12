@@ -80,10 +80,49 @@ public class Main {
 
 
         //imprimir datos
-        for(Integer planeta: setC) {
-            System.out.println(num);
+        //vi
+        System.out.println("Planetas en el sistema solar: ");
+        for (CuerpoCeleste planeta : planetas) {
+            System.out.println(planeta.getNombre());
         }
 
+        //vii
+        CuerpoCeleste marte = sistemaSolar.get("Marte");
+        if (marte != null) {
+            System.out.println("Lunas de Marte: ");
+            for (CuerpoCeleste luna : marte.getSatelites()) {
+                System.out.println(luna.getNombre());
+            }
+        }
+
+        //viii
+        Set<CuerpoCeleste> lunas = new HashSet<>();
+        for (CuerpoCeleste planeta : planetas) {
+            lunas.addAll(planeta.getSatelites());
+        }
+
+        //ix
+        System.out.println("Todas las lunas: ");
+        for (CuerpoCeleste luna : lunas) {
+            System.out.println(luna.getNombre());
+        }
+        System.out.println("Total de lunas: " + lunas.size());
+
+        //x
+        CuerpoCeleste pluton884 = new CuerpoCeleste("Plutón", 884.0, CuerpoCeleste.TipoCuerpoCeleste.PLANETA);
+        planetas.add(pluton884);
+
+        //xi
+        System.out.println("Planetas después de agregar Plutón-884: ");
+        for (CuerpoCeleste planeta : planetas) {
+            System.out.println(planeta);
+        }
+
+        if (planetas.contains(pluton884)) {
+            System.out.println("Plutón-884 fue agregado al conjunto");
+        } else {
+            System.out.println("Plutón-884 NO fue agregado al conjunto porque ya existía");
+        }
     }
 
 }
