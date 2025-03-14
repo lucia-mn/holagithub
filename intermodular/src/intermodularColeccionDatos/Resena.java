@@ -77,7 +77,7 @@ public class Resena {
     //toString
     @Override
     public String toString() {
-        return "📌 Reseña {" +
+        return "Reseña {" +
                 "\nID Reseña: " + idResena +
                 "\nID Producto: " + idProducto +
                 "\nCalificación: " + calificacion +
