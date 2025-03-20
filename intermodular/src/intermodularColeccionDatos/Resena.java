@@ -75,6 +75,20 @@ public class Resena {
 
 
     //toString
+    /*@Override
+    public String toString() {
+        return "<RESENAS>\n" +
+                "      <resenaJuego>\n" +
+                "           <idResena>" + getIdResena() + "</idResena>\n" +
+                "           <idProducto>" + getIdProducto() + "</idProducto>\n" +
+                "           <calificacion>" + getCalificacion() + "</calificacion>\n" +
+                "           <contenido>" + getContenido() + "</contenido>\n" +
+                "           <fPublicacion>" + getFPublicacion() + "</fPublicacion>\n" +
+                "           <idUsuario>" + getIdUsuario() + "</idUsuario>\n" +
+                "      </resenaJuego>\n" +
+                "</RESENAS>";
+    }*/
+
     @Override
     public String toString() {
         return "Reseña {" +
@@ -84,7 +98,7 @@ public class Resena {
                 "\nContenido: \"" + contenido + "\"" +
                 "\nFecha Publicación: " + fPublicacion +
                 "\nID Usuario: " + idUsuario +
-                "\n}";
+                "\n}\n";
     }
 
 }

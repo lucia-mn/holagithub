@@ -47,7 +47,7 @@ public class mainResena {
                     break;
 
                 case 7:
-                    pasarAXml();
+                    pasarAXml(listaResenas);
 
                 default:
                     System.out.println("Opción no válida, introduce un número del menú de opciones");
@@ -182,16 +182,18 @@ public class mainResena {
     }
 
     //pasar a XML
-    private static void pasarAXml() {
+    private static void pasarAXml(ArraydeResena listaResenas) {
         System.out.println("<RESENAS>");
-        System.out.println("      <resenaJuego>");
-        System.out.println("           <idResena> " + resena.getIdResena() + " </idResena>");
-        System.out.println("           <idProducto> " + resena.getIdProducto() + " </idProducto>");
-        System.out.println("           <calificacion> " + resena.getCalificacion() + " </calificacion>");
-        System.out.println("           <contenido> " + resena.getContenido() + " /contenido>");
-        System.out.println("           <fPublicacion> " + resena.getFPublicacion() + " </fPublicacion>");
-        System.out.println("           <idUsuario> " + resena.getIdUsuario() + " </idUsuario>");
-        System.out.println("      </resenaJuego>");
+        for (Resena resena : listaResenas.getResenas()) {
+            System.out.println("      <resenaJuego>");
+            System.out.println("           <idResena> " + resena.getIdResena() + " </idResena>");
+            System.out.println("           <idProducto> " + resena.getIdProducto() + " </idProducto>");
+            System.out.println("           <calificacion> " + resena.getCalificacion() + " </calificacion>");
+            System.out.println("           <contenido> " + resena.getContenido() + " </contenido>");
+            System.out.println("           <fPublicacion> " + resena.getFPublicacion() + " </fPublicacion>");
+            System.out.println("           <idUsuario> " + resena.getIdUsuario() + " </idUsuario>");
+            System.out.println("      </resenaJuego>");
+        }
         System.out.println("</RESENAS>");
     }
 
