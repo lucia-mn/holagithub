@@ -48,9 +48,11 @@ public class mainResena {
 
                 case 7:
                     pasarAXml(listaResenas);
+                    break;
 
                 default:
                     System.out.println("Opción no válida, introduce un número del menú de opciones");
+                    break;
             }
         }
         System.out.println("*** Fin del programa ***");
@@ -183,18 +185,23 @@ public class mainResena {
 
     //pasar a XML
     private static void pasarAXml(ArraydeResena listaResenas) {
-        System.out.println("<RESENAS>");
-        for (Resena resena : listaResenas.getResenas()) {
-            System.out.println("      <resenaJuego>");
-            System.out.println("           <idResena> " + resena.getIdResena() + " </idResena>");
-            System.out.println("           <idProducto> " + resena.getIdProducto() + " </idProducto>");
-            System.out.println("           <calificacion> " + resena.getCalificacion() + " </calificacion>");
-            System.out.println("           <contenido> " + resena.getContenido() + " </contenido>");
-            System.out.println("           <fPublicacion> " + resena.getFPublicacion() + " </fPublicacion>");
-            System.out.println("           <idUsuario> " + resena.getIdUsuario() + " </idUsuario>");
-            System.out.println("      </resenaJuego>");
+        if (listaResenas == null || listaResenas.getResenas().isEmpty()) {
+            System.out.println("No hay reseñas para imprimir");
+
+        } else {
+            System.out.println("<RESENAS>");
+            for (Resena resena : listaResenas.getResenas()) {
+                System.out.println("      <resenaJuego>");
+                System.out.println("           <idResena> " + resena.getIdResena() + " </idResena>");
+                System.out.println("           <idProducto> " + resena.getIdProducto() + " </idProducto>");
+                System.out.println("           <calificacion> " + resena.getCalificacion() + " </calificacion>");
+                System.out.println("           <contenido> " + resena.getContenido() + " </contenido>");
+                System.out.println("           <fPublicacion> " + resena.getFPublicacion() + " </fPublicacion>");
+                System.out.println("           <idUsuario> " + resena.getIdUsuario() + " </idUsuario>");
+                System.out.println("      </resenaJuego>\n");
+            }
+            System.out.println("</RESENAS>");
         }
-        System.out.println("</RESENAS>");
     }
 
 }

@@ -12,6 +12,10 @@ public class ArraydeResena {
     //constructor
     public ArraydeResena() {
         this.resenas = new ArrayList<>();
+        resenas.add(new Resena("R001", 5, 10, "Increíble juego, gráficos espectaculares y una historia atrapante", "2024-02-15", 1001));
+        resenas.add(new Resena("R002", 4, 8, "Muy buen juego, aunque todavía se puede mejorar", "2024-01-28", 1002));
+        resenas.add(new Resena("R003", 3, 6, "Entretenido, pero la jugabilidad se vuelve repetitiva después de un tiempo", "2023-12-10", 1003));
+        resenas.add(new Resena("R004", 2, 4, "Esperaba más, la IA de los enemigos es bastante floja", "2023-11-05", 1004));
     }
 
     //getters
