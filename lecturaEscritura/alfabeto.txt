@@ -1,10 +1,4 @@
-lucia
-andrea
-remem
-antonio
-oscar
-paula
-nuria
+lucia andrea reme antonio oscar paula nuria
 edu
 cris
 adrian

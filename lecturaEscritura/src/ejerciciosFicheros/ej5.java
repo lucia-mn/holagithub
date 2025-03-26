@@ -24,9 +24,11 @@ public class ej5 {
 
             PrintWriter salida = new PrintWriter(new FileWriter(ao));
             for (String palabra : palabras) {
-                salida.println(palabra);
+                salida.print(palabra + " ");
             }
+
             salida.close();
+
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
