@@ -76,7 +76,7 @@ public class ArraydeResena {
         return resenas;
     }
 
-    //impirmir reseñas
+    //imprimir reseñas
     public void printResenas() {
         if (resenas.isEmpty()) {
             System.out.println("No hay reseñas en la lista");

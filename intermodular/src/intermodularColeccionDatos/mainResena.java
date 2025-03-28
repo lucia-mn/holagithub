@@ -1,5 +1,8 @@
 package intermodularColeccionDatos;
 
+import ejemploEduardo.Almohada;
+import ejemploEduardo.Colchon;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ public class mainResena {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArraydeResena listaResenas = new ArraydeResena();
+
 
         boolean fin = true;
         while (fin) {
@@ -50,6 +54,10 @@ public class mainResena {
                     pasarAXml(listaResenas);
                     break;
 
+                case 8:
+                    infoclase(resena, listaResenas);
+                    break;
+
                 default:
                     System.out.println("Opción no válida, introduce un número del menú de opciones");
                     break;
@@ -60,6 +68,36 @@ public class mainResena {
 
 
 
+
+    //METODOS
+    public static void infoclase(Object o, ArraydeResena listaResenas) {
+        Class<?> c;
+        c=o.getClass();
+
+        System.out.println("<RESENAS>");
+        for (Resena resena : listaResenas.getResenas()) {
+            System.out.println("      <resenaJuego>");
+            System.out.println("           <" + c.getName() + "> " + resena.getIdResena() + " </idResena>");
+            System.out.println("           <idProducto> " + resena.getIdProducto() + " </idProducto>");
+            System.out.println("           <calificacion> " + resena.getCalificacion() + " </calificacion>");
+            System.out.println("           <contenido> " + resena.getContenido() + " </contenido>");
+            System.out.println("           <fPublicacion> " + resena.getFPublicacion() + " </fPublicacion>");
+            System.out.println("           <idUsuario> " + resena.getIdUsuario() + " </idUsuario>");
+            System.out.println("      </resenaJuego>\n");
+        }
+        System.out.println("</RESENAS>");
+
+        System.out.println("Nombre de la clase: "+c.getName());
+        System.out.println("Nombre del paquete: "+c.getPackage().getName());
+        System.out.println("Hereda de la clase: "+c.getSuperclass().getName());
+        System.out.println("Posee los campos:");
+        for (int i=0;i<c.getDeclaredFields().length;i++)
+        {
+            System.out.println("\t"+ ""+c.getDeclaredFields()[i].getName()+ " "+c.getDeclaredFields()[i].getType().getName());
+        }
+    }
+
+    //menu
     public static void imprimirmenu() {
         System.out.println(" ");
         System.out.println("---* Menú *---");
@@ -70,6 +108,7 @@ public class mainResena {
         System.out.println("5. Imprimir reseñas");
         System.out.println("6. Salir");
         System.out.println("7. Pasar de JAVA a XML");
+        System.out.println("8. Resena XML bien");
         System.out.print("Selecciona una opción: ");
     }
 
