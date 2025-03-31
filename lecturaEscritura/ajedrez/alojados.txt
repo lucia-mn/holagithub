@@ -1,0 +1,15 @@
+Lista de jugadores alojados en Hotel Melià
+
+Ranking        Nombre
+---------------------------------------
+   1  -- Shuvalova, Polina
+   2  -- Medarde Santiago, Luis Marcos
+   3  -- Merario Alarcon, Andres
+   5  -- Sofronie, Iulian
+   6  -- Garcia Fernandez, Victor
+   7  -- Teran Alvarez, Ismael
+   9  -- Van der Hagen, Loek
+   10 -- Medhus, Vitus Bondo
+   11 -- Torres Sanchez, Jose
+   13 -- Ibanez Aullana, Ramon
+
