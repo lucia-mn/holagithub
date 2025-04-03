@@ -1,9 +1,16 @@
-package intermodularColeccionDatos;
+package intermodularXML;
 
+import intermodularColeccionDatos.Resena;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 //lucia mendiola naharro
 
@@ -123,7 +130,7 @@ public class mainResena {
 
     private static void eliminarResena(Scanner scanner, ArraydeResena listaResenas) {
         System.out.print("ID de la reseña a eliminar: ");
-        String idResena = scanner.nextLine();
+        String idResena = scanner.nextLine().toLowerCase();
         if (listaResenas.removeResena(idResena)) {
             System.out.println("La reseña ha sido eliminada");
         } else {
@@ -203,5 +210,51 @@ public class mainResena {
             System.out.println("</RESENAS>");
         }
     }
+
+
+
+
+    public static void generarXMLResenas(ArraydeResena listaResenas) {
+        // Verifica si hay reseñas
+        if (listaResenas == null || listaResenas.getResenas().isEmpty()) {
+            System.out.println("No hay reseñas para exportar.");
+            return;
+        }
+
+        // Crea el archivo XML
+        File archivoXML = new File("resenas.xml");
+
+        try (FileWriter writer = new FileWriter(archivoXML)) {
+            writer.write("<RESENAS>\n");
+
+            // Itera sobre cada reseña en la lista de reseñas
+            for (Resena resena : listaResenas.getResenas()) {
+                writer.write("    <Resena>\n");
+
+                // Usa reflexión para obtener los campos de la clase Resena
+                Class<?> c = resena.getClass();
+                for (Field field : c.getDeclaredFields()) {
+                    field.setAccessible(true);  // Hace el campo accesible si es privado
+
+                    // Escribe el nombre del campo y su valor en el XML
+                    try {
+                        writer.write("        <" + field.getName() + ">" + field.get(resena) + "</" + field.getName() + ">\n");
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                writer.write("    </Resena>\n");
+            }
+
+            writer.write("</RESENAS>\n");
+
+            System.out.println("Las reseñas se han exportado correctamente a resenas.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al escribir el archivo XML.");
+        }
+    }
+
 
 }

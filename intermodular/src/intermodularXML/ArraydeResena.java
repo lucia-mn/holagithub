@@ -1,4 +1,6 @@
-package intermodularColeccionDatos;
+package intermodularXML;
+
+import intermodularColeccionDatos.Resena;
 
 import java.util.ArrayList;
 import java.util.Iterator;
