@@ -1,35 +1,36 @@
 package Lambda.act3und7;
 
-import Lambda.Onomatopeya;
-
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
-interface Run{
-    public String correr(String nombre);
+interface Run {
+    String correr(String nombre);
 }
 
 public class ej4 {
 
     public static void main(String[] args) {
-        ArrayList<Parte> partes = new ArrayList<>();
+        ArrayList<Parte> listaPartes = new ArrayList<>();
 
         String texto = "Vamos a crear un array";
-        String[] partes = texto.split(" ");
+        String[] palabras = texto.split(" ");
 
-        Run uno = (nombre) -> "Vamos";
+        Run uno = (nombre) -> "Vamos " + nombre;
+        System.out.println(uno.correr("rápido"));
 
-        System.out.println(uno.correr("vamos"));
-
-
-
-        for (String parte: partes) {
-            System.out.println(partes);
+        for (String palabra : palabras) {
+            System.out.println(palabra);
         }
 
     }
 
 
-    public class Parte {
+    public static class Parte {
 
     }
 }
