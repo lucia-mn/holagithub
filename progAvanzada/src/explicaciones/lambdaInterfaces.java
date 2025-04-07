@@ -28,7 +28,7 @@ public class lambdaInterfaces {
         Consumer<String> printer4 = message -> System.out.println(message.toUpperCase());
 
 
-        // priemra en mayusculas en resto en minusculas
+        // primera en mayusculas el resto en minusculas
         Consumer<String> printer12 = printer1.andThen(printer2);
         printer12.accept("feliz navidad");
 
@@ -67,7 +67,7 @@ public class lambdaInterfaces {
         mapa.put(5, "cinco");
         mapa.put(6, "seis");
         mapa.put(7, "siete");
-        //mapa.forEach(num, nombre) -> System.out.println("Clave: " + num + "Valor: " + nombre);
+        mapa.forEach((clave, valor) -> System.out.println(clave + ": " + valor));
 
 
 
