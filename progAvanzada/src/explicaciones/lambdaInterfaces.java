@@ -1,12 +1,7 @@
 package explicaciones;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.Supplier;
+import java.util.*;
+import java.util.function.*;
 
 public class lambdaInterfaces {
 
@@ -86,5 +81,53 @@ public class lambdaInterfaces {
 
         //Supplier<Ciudad> city = () -> new Ciudad(Elche);
         //System.out.println(city.get().nombre);
+
+
+
+
+        //PREDICATE
+        //predicate para nombres que empiezan por M
+        Predicate<String> checker = a -> a.startsWith("M");
+        System.out.println(checker.test("Miguel"));  // true
+        System.out.println(checker.test("Gabriel")); // false
+
+        //predicate para validar longitud
+        Predicate<String> validate = s -> s.length() > 5 && s.length() < 30;
+        System.out.println(validate.test("Miguel")); // true
+        System.out.println(validate.test("Ana"));    // false
+
+
+        //imprimir usando for-each y Predicate
+        List<String> names2 = List.of("Pedro", "Sandra", "Unai", "Lucía");
+        for (String name : names2) {
+            if (validate.test(name)) {
+                System.out.println(name);
+            }
+        }
+
+
+        //imprimir usando Stream + Predicate + Consumer
+        Consumer<String> nombres = s -> System.out.println(s);
+        names2.stream()
+                .filter(validate)
+                .forEach(nombres);
+
+        /*
+
+        Predicate<String> empiezaporM = st -> st.startsWith ("M");
+        Predicate<String> menorque30 = st -> st.lenght < 30;
+
+        Predicate<String> combino = empiezaporM.or(menorque30);
+
+         */
+
+
+
+
+        //FUNCTION
+        Consumer<String> mostrarString = s -> System.out.println(s);
+        Function<String, Integer> extraerLongitud = t -> t.length();
+        mostrarString.accept(String.valueOf(extraerLongitud.apply("Hola como estas")));
     }
+
 }
