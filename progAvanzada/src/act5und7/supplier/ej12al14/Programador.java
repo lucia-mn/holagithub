@@ -17,7 +17,7 @@ public class Programador {
         this.fechaInicio = fechaInicio;
     }
 
-    //costructor2 (solo nombre)
+    //costructor2
     public Programador(String nombre) {
         this.nombre = nombre;
         this.salario = 0.0;

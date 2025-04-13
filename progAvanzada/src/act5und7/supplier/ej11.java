@@ -21,6 +21,6 @@ public class ej11 {
         mapa.forEach((clave, valor) -> System.out.println(clave + ": " + valor));
 
         Supplier<LocalDate> fecha = () -> LocalDate.now();
-        System.out.println(fecha.get());
+        System.out.println("Fecha actual: " + fecha.get());
     }
 }

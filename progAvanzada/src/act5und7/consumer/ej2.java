@@ -8,12 +8,15 @@ public class ej2 {
 
     public static void main(String[] args) {
 
-        System.out.println("----- mostrar lita enteros -----");
+        System.out.println("*----- ver lista enteros -----*");
         List<Integer> numeros = new ArrayList<>();
-        Consumer<Integer> num = numero -> System.out.println(numeros);
 
         for (int i = 1; i <= 10; i++) {
-
+            numeros.add(i);
         }
+
+
+        Consumer<List<Integer>> verlista = lista -> System.out.println(lista);
+        verlista.accept(numeros);
     }
 }

@@ -8,7 +8,7 @@ public class ej8 {
 
     public static void main(String[] args) {
 
-        Predicate<String> A5 = a -> a.startsWith("A") && a.length() == 5;
+        Predicate<String> A5 = a -> a.startsWith("A") || a.length() == 5;
 
         List<String> a = new ArrayList<>();
         a.add("Hola");
@@ -17,8 +17,6 @@ public class ej8 {
         a.add("antonio");
         a.add("estrellas");
 
-
-        a.stream().filter(A5).forEach(integer -> System.out.println(A5));
+        a.stream().filter(A5).forEach(palabra -> System.out.println(palabra));
     }
-
 }

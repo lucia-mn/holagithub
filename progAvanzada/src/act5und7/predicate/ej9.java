@@ -8,7 +8,7 @@ public class ej9 {
 
     public static void main(String[] args) {
 
-        Predicate<String> A5 = a -> a.startsWith("A") && a.length() == 5;
+        Predicate<String> P = a -> !a.substring(0, 1).equalsIgnoreCase("P");
 
         List<String> a = new ArrayList<>();
         a.add("Hola");
@@ -16,9 +16,8 @@ public class ej9 {
         a.add("lucia");
         a.add("antonio");
         a.add("estrellas");
+        a.add("patata");
 
-
-        a.stream().filter(A5).forEach(integer -> System.out.println(A5));
+        a.stream().filter(P).forEach(palabra -> System.out.println(palabra));
     }
-
 }

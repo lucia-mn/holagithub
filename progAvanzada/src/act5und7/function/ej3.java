@@ -14,11 +14,8 @@ public class ej3 {
         Function co = mul.andThen(mul);
 
         String texto = "Programación";
-
         mostrarString.accept(String.valueOf(extraerLongitud.apply("Programación")));
-        //mostrarString.accept(String.valueOf(co.apply("Programación")));
 
         mostrarString.accept("Resultado: " + co.apply(extraerLongitud.apply(texto)));
-
     }
 }

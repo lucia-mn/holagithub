@@ -18,6 +18,7 @@ public class ej3 {
         names.add("lara");
         names.add("alba");
         names.add("cova");
+
         names.forEach(nombre);
     }
 }

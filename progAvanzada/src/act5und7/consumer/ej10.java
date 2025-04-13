@@ -8,7 +8,7 @@ public class ej10 {
     public static void main(String[] args) {
 
         BiConsumer<Integer, String> bimap = (n, s) -> System.out.println(n + " " + s);
-        System.out.println("*--- ni idea ---*");
+        System.out.println("*--- bimap ---*");
         bimap.accept(10, "diez");
 
         HashMap<Integer, String > mapa = new HashMap<>();

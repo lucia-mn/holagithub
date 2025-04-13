@@ -4,5 +4,11 @@ import java.util.function.Predicate;
 
 public class ej2 {
 
-    Predicate<String> m = m -> m.length() > 100 && m.length() < 300;
+    public static void main(String[] args) {
+
+        Predicate<String> l = m -> m.length() > 100 && m.length() < 300;
+
+        String texto = "Hola mundo";
+        System.out.println(l.test(texto));
+    }
 }

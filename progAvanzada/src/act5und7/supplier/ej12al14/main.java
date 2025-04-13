@@ -7,17 +7,17 @@ public class main {
 
     public static void main(String[] args) {
 
-        //ej.12
+        //ej12
         Programador programador1 = new Programador("andrea", 1200.80, new Date());
         System.out.println(programador1);
 
-        //ej.13
+        //ej13
         Programador programador2 = new Programador("lucia");
         System.out.println(programador2);
 
 
-        //ej.14
-        System.out.println("*----- ej.14 -----*");
+        //ej14
+        System.out.println("*----- ej14 -----*");
         Programador programador3 = fabricaProgramadores(nombre -> new Programador(nombre, 4000.0, new Date()));
         System.out.println(programador3);
 
@@ -25,7 +25,7 @@ public class main {
         System.out.println(programador4);
     }
 
-    //metodo ej.14
+    //metodo ej14
     public static Programador fabricaProgramadores (Function<String, Programador> programador) {
         return programador.apply("reme");
     }
