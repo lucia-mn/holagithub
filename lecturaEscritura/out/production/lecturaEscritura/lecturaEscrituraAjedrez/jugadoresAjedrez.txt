@@ -57,9 +57,9 @@ Ran.;Tít.;Nombre;Fed.;FIDE;FIDE ID;Origen/Club;Info
 54;;Beneyto De Ramon, Guillermo;ESP;1993;54533244;CD Basilio;PCV
 55;CM;Sofronie, Vladimir;ROU;1991;1296671;Rumanía;H
 56;;Nguyen, Khoi;BEL;1985;272540;Bélgica;PH
-57;;Khassenov, Mansur;KAZ;1982;13768700;Kazajstán;HP
-58;CM;Sakulski, Bernard;ESP;1970;2278677;A Coruña;P
-59;;Gimeno Simo, Sergio;ESP;1957;22293965;Vila-real;PCHV
+57;;Khassenov, Mansur;KAZ;1982;13768700;Kazajstán;P
+58;CM;Sakulski, Bernard;ESP;1970;2278677;A Coruña;PH
+59;;Gimeno Simo, Sergio;ESP;1957;22293965;Vila-real;PCV
 60;;Bukharkov, Stepan;FID;1951;34346643;Rusia;PCV
 61;;Rutherford, William;SCO;1950;2401045;Reino Unido;PH
 62;FM;Huguet, Sergio;HON;1948;2212552;Honduras;PH

@@ -1,0 +1,7 @@
+Lista de profesores de 1ºJ DAW
+Nom.;Ap.;Asig.;Sal.;
+
+José Andres;González;Programación;1800
+Eduardo;García;Programación;1800
+Sergio;González;Lenguaje de marcas;1800
+Juan Pedro;Pérez;SIN;1800

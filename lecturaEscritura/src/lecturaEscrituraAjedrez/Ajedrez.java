@@ -22,7 +22,8 @@ public class Ajedrez {
                 if (datos.length >= 8 && datos[7].contains("H")) {
                     String ranking = datos[0];
                     String nombre = datos[2];
-                    jugadoresAlojamiento.add(ranking + ";" + nombre);
+                    //String hotel = datos[7];
+                    jugadoresAlojamiento.add(ranking + "; " + nombre);
                 }
             }
 
