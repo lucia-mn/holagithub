@@ -1,0 +1,5 @@
+Producto	Precio	Cantidad	Subtotal
+garbanzos	2,39	1		2,39
+jengibre	3,13	45		140,85
+-------------------------------------------
+TOTAL: 143,24 (-14,32 de descuento) = 128,92
